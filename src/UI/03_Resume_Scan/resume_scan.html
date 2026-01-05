@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ResuMate AI - Resume Scan Input (Dark Mode)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366f1", // Indigo 500
+                        "primary-dark": "#4338ca",
+                        "accent": "#8b5cf6", // Violet
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#0f172a", // Slate 950
+                        "surface-dark": "#1e293b", // Slate 800
+                        "surface-dark-lighter": "#334155", // Slate 700
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+    @layer utilities {
+      .glass-effect {
+        @apply bg-white/70 backdrop-blur-xl border-b border-white/5;
+      }
+      .dark .glass-effect {
+        @apply bg-slate-900/70 border-slate-800/50;
+      }
+      .glass-card {
+        @apply bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg;
+      }
+      .dark .glass-card {
+        @apply bg-slate-800/40 border-slate-700/50 shadow-black/20;
+      }
+    }::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+    .dark ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+    }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased selection:bg-primary/30 selection:text-white">
+<div class="flex h-screen w-full overflow-hidden">
+<aside class="hidden md:flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 backdrop-blur-xl relative z-20">
+<div class="flex h-16 items-center gap-3 px-6 border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 p-1.5">
+<span class="material-symbols-outlined text-primary text-2xl">bubble_chart</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">ResuMate AI</h1>
+</div>
+<div class="flex flex-1 flex-col justify-between p-4 overflow-y-auto">
+<div class="flex flex-col gap-1">
+<p class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">Menu</p>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Dashboard</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">description</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Job Description</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg bg-primary/10 border border-primary/20 px-4 py-3 text-primary transition-all shadow-sm shadow-primary/5" href="#">
+<span class="material-symbols-outlined filled" style="font-variation-settings: 'FILL' 1;">document_scanner</span>
+<span class="text-sm font-medium">Resume Scan</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bar_chart</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Reports</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">mail</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Email Automation</span>
+</a>
+</div>
+<div class="flex flex-col gap-1 mt-6">
+<p class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">System</p>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Settings</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">help</span>
+<span class="text-sm font-medium group-hover:text-slate-900 dark:group-hover:text-white">Help &amp; Support</span>
+</a>
+</div>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 p-3 border border-transparent dark:border-slate-700/50">
+<div class="h-10 w-10 overflow-hidden rounded-full bg-slate-200 flex-shrink-0 border-2 border-white dark:border-slate-600" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK-ZfIM56NRzhG8DQH1mn8Ckm1-19T0LaCrWFwOypVy9-jlZnC21VR8oo1vQzyhCbxs8YcFm1-3rGN-efOaSS3ZNzdU_2xTUJ5FNc-6uItbudes-E7QeQm9FkhJx2m-kQVjNCdtu_2n9TS3rRZ2mQZy2ofwepWAubHDcptbRzysZHRmd8Qf2ZK4XNQsQ6_4xFPVHGT5pSrral6Gem7ii-7FRgydVlWhL1x6pOPPuvyN92DCHz0Swhy3C5jbgDf1a2Ftwlq1KrzsXo'); background-size: cover; background-position: center;"></div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-semibold text-slate-900 dark:text-white">Alex Morgan</span>
+<span class="truncate text-xs text-slate-500 dark:text-slate-400">Recruiter Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex h-full flex-1 flex-col relative overflow-hidden bg-background-light dark:bg-background-dark">
+<header class="glass-effect sticky top-0 z-30 flex h-16 w-full items-center justify-between px-4 md:px-8">
+<div class="flex w-full max-w-md items-center gap-2 md:gap-4">
+<button class="md:hidden text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+<span class="hover:text-slate-700 dark:hover:text-slate-200 cursor-pointer transition-colors">Dashboard</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Resume Scan</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 rounded-full bg-emerald-100 dark:bg-emerald-500/10 px-3 py-1 border border-emerald-200 dark:border-emerald-500/20">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-semibold text-emerald-700 dark:text-emerald-400">AI Online</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+<button class="relative rounded-lg p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-slate-900"></span>
+</button>
+<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-primary/25 cursor-pointer">
+                   AI
+                </div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+<div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none z-0"></div>
+<div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="mx-auto max-w-5xl flex flex-col gap-8 relative z-10 pb-20">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 mb-2">
+<span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary border border-primary/20 uppercase tracking-wide">Step 2</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Add Resumes</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+                        Choose how you want to import candidate profiles into the system. You can upload in bulk or send files via a dedicated email.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="group relative flex flex-col rounded-2xl bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-8 shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300">
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Upload via email</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
+                            Forward attachments directly to this job. The AI will automatically parse attachments from incoming emails.
+                        </p>
+<div class="mt-auto">
+<label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Dedicated Email Address</label>
+<div class="flex items-center gap-2 rounded-lg bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 p-3 group-hover:border-primary/30 transition-colors">
+<code class="flex-1 font-mono text-sm text-slate-700 dark:text-slate-300 truncate">job-8392@resumate.ai</code>
+<button class="p-1.5 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-primary transition-colors" title="Copy to clipboard">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="group relative flex flex-col items-center justify-center text-center rounded-2xl bg-white dark:bg-slate-800/40 border-2 border-dashed border-slate-200 dark:border-slate-700 p-8 shadow-sm hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all duration-300 cursor-pointer">
+<div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Upload resumes folder</h3>
+<p class="text-slate-500 dark:text-slate-400 max-w-sm mb-8 leading-relaxed">
+                            Drag and drop files here, or click to browse your computer for candidate documents.
+                        </p>
+<button class="inline-flex items-center gap-2 rounded-lg bg-primary/10 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                            Bulk Upload
+                        </button>
+<p class="mt-6 text-xs text-slate-400 dark:text-slate-500">
+                            Supported: PDF, DOCX, TXT (Max 50MB)
+                        </p>
+</div>
+</div>
+<div class="mx-auto flex w-full md:w-fit items-center gap-6 bg-white dark:bg-slate-800/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:px-6 shadow-lg shadow-black/5 dark:shadow-black/20">
+<div class="relative flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700/80 text-primary">
+<span class="material-symbols-outlined text-2xl">description</span>
+<div class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-slate-800">3</div>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-slate-900 dark:text-white">3 resumes added</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Ready to scan and parse</span>
+</div>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANgpaKzpNOxARSKPZLmL5DGCkf7N4m9uHiEruwdmpD21kkCKgQhzCmLhLKJMYzuWMHiMfgDYlpedf8S4KswB3U29TBwSIJQ5OEX7LZ5RfszKs12zSa8kQDcyjrlvt1O83OOGrYGrbm9SMi-aQ3JJeP1EisIJnXyBwjNnyz0mglIJxbilmHDAn31qDh5NUpGn88CFI_MpcBCk2Y0yQi0ViHZuvsjoh0LsMUUXP-0SQ94n5MYCWpZ3zx_MiPsnXdTXOGCX-iZeZCe2g'); background-size: cover;"></div>
+<div class="h-8 w-8 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvcr-qE-ddH6VHMnjNWZQYctjUTjPZ7RB2t6gmD4_X18i9WUNvXsNBuxy28HU8bU0A14vR4oyUkdv8e1fq4nznjwZuQn_zRYIIyN5RbBrsSSFZUhax5Tk1Zch51zodu9U31LCd-Ou_tzr_liPEXnobXaLRs-2FPD5eqw4K32c9Y0mMtKHyGBU55L45O6gi31gITos7b3PefXo82y4FTy3tXO_V4Valr7G2LcBVgex3nmwnyJqSzG62zpTlOgm3CWdoPCWC5uXpbNs'); background-size: cover;"></div>
+<div class="h-8 w-8 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCK-ZfIM56NRzhG8DQH1mn8Ckm1-19T0LaCrWFwOypVy9-jlZnC21VR8oo1vQzyhCbxs8YcFm1-3rGN-efOaSS3ZNzdU_2xTUJ5FNc-6uItbudes-E7QeQm9FkhJx2m-kQVjNCdtu_2n9TS3rRZ2mQZy2ofwepWAubHDcptbRzysZHRmd8Qf2ZK4XNQsQ6_4xFPVHGT5pSrral6Gem7ii-7FRgydVlWhL1x6pOPPuvyN92DCHz0Swhy3C5jbgDf1a2Ftwlq1KrzsXo'); background-size: cover;"></div>
+</div>
+<button class="text-sm font-medium text-primary hover:text-primary-dark hover:underline underline-offset-4 ml-2">View List</button>
+</div>
+<div class="fixed bottom-0 left-0 md:left-64 right-0 p-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 z-40 transition-all">
+<div class="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-end gap-4">
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="px-6 py-3 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+                            Cancel
+                        </button>
+<button class="flex items-center gap-2 rounded-lg bg-primary hover:bg-primary-dark text-white px-8 py-3 text-sm font-bold shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 w-full sm:w-auto justify-center">
+<span class="material-symbols-outlined text-[20px]">document_scanner</span>
+                            Scan Resumes
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
