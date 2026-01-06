@@ -1,0 +1,41 @@
+@startuml Deployment
+skinparam backgroundColor #1e1e1e
+skinparam textBackgroundColor #ffffff
+skinparam ArrowColor #0ea5e9
+
+node "Client Devices" {
+    component [Web Browser\n(React App)] as Browser
+}
+
+node "Web Server" {
+    component [React Build\n(Static Files)] as ReactBuild
+    component [Nginx/Apache] as WebServer
+}
+
+node "Application Server" {
+    component [Java Backend\nServices] as JavaServer
+}
+
+node "Workflow Server" {
+    component [n8n\nWorkflow Engine] as N8NServer
+}
+
+node "Database Server" {
+    database [MongoDB\nInstance] as DBServer
+}
+
+node "External Services" {
+    component [AI/LLM API] as AIAPI
+    component [SMTP Server] as SMTPServer
+}
+
+Browser --> WebServer: HTTP/HTTPS
+WebServer --> ReactBuild: Serve
+JavaServer --> DBServer: Query/Store
+JavaServer --> N8NServer: Trigger Workflows
+N8NServer --> AIAPI: Process Data
+N8NServer --> DBServer: Store Results
+JavaServer --> SMTPServer: Send Emails
+Browser --> JavaServer: REST API Calls
+
+@enduml

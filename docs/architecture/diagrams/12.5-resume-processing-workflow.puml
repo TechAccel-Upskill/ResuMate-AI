@@ -1,0 +1,20 @@
+@startuml ResumeProcessingFlow
+skinparam backgroundColor #1e1e1e
+skinparam textBackgroundColor #ffffff
+skinparam ArrowColor #0ea5e9
+
+start
+:Recruiter uploads\nresumes;
+:Resume stored in\ntemporary location;
+:n8n workflow triggered;
+:Extract text from\nPDF/DOCX;
+:Parse resume data\n(Name, Email, Experience);
+:Extract skills &\ntechnologies;
+:Calculate ATS Score\nusing AI;
+:Store parsed data\nin MongoDB;
+:Generate candidate\nreport;
+:Update frontend\nwith results;
+:Display in\nCandidate Reports;
+stop
+
+@enduml
