@@ -18,4 +18,4 @@ ResuMate is an AI-powered recruitment assistant that speeds up candidate screeni
 
 📌FAQs
 Have questions? Check our live FAQs:
-https://github.com/TechAccel-Upskill/ResuMate-AI/discussions/categories/q-a
+🔗 https://github.com/TechAccel-Upskill/ResuMate-AI/discussions/categories/q-a
