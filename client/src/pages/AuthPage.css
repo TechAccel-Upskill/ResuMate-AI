@@ -1,0 +1,251 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* ========== MAIN CONTAINER ========== */
+
+/* ========== MAIN CONTAINER ========== */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ========== LEFT SIDE (IMAGE SECTION) ========== */
+/* ========== LEFT SIDE (IMAGE SECTION) ========== */
+/* Left section removed for a focused login screen */
+
+.auth-left {
+  flex: 1;
+  padding: 60px;
+  position: relative;
+  /* Fix for overlay covering screen */
+}
+
+/* ========== GRADIENT OVERLAY (PROFESSIONAL) ========== */
+.auth-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+      rgba(5, 10, 20, 0.95),
+      rgba(5, 10, 20, 0.75),
+      rgba(5, 10, 20, 0.35),
+      rgba(5, 10, 20, 0.05));
+  z-index: 1;
+}
+
+/* ========== TEXT CONTAINER ========== */
+.auth-left-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+
+/* ========== HEADING ========== */
+.auth-left-content h1 {
+  font-size: 46px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+/* ========== SUBTITLE ========== */
+.auth-left-content p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* ========== LIST ========== */
+.auth-left-content ul {
+  list-style: none;
+}
+
+.auth-left-content li {
+  font-size: 17px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  padding-left: 30px;
+  position: relative;
+}
+
+/* ========== CHECK ICON ========== */
+.auth-left-content li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-size: 16px;
+}
+
+/* RIGHT */
+/* .auth-right was previously display:none, updating as requested */
+.auth-right {
+  flex: 1;
+  display: flex;
+  /* 👈 REQUIRED */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* Ensure it's above background if necessary */
+  z-index: 10;
+  /* Higher than the left overlay */
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* INPUTS */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.field input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #0f766e;
+}
+
+/* PRIMARY BUTTON */
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #115e59;
+}
+
+/* DIVIDER */
+.divider {
+  text-align: center;
+  margin: 14px 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* SOCIAL BUTTONS */
+.social-btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.social-btn:hover {
+  border-color: #0f766e;
+  background: #f0fdfa;
+  transform: translateY(-1px);
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* LINKS */
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  color: #0f766e;
+  cursor: pointer;
+  margin-bottom: 22px;
+}
+
+.switch {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 18px;
+  color: #6b7280;
+}
+
+.switch span {
+  color: #0f766e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ERRORS */
+.msg {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.msg.error {
+  color: #dc2626;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-left,
+  .auth-right {
+    width: 100%;
+  }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ResuMate AI Homepage Hero</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0f766e", // Deep Teal from the screenshot
+                        "primary-hover": "#115e59",
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a", // Dark slate/blue mirroring the dark panel in the image
+                        "surface-light": "#f8fafc",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 transition-colors duration-300 font-body antialiased selection:bg-primary selection:text-white">
+    <nav
+        class="fixed w-full z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="bg-primary/10 dark:bg-primary/20 p-2 rounded-lg">
+                        <span class="material-icons text-primary text-2xl">smart_toy</span>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900 dark:text-white">ResuMate AI</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Features</a>
+                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Pricing</a>
+                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Success Stories</a>
+                    <a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#">Resources</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button aria-label="Toggle Dark Mode"
+                        class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+                        onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons dark:hidden">dark_mode</span>
+                        <span class="material-icons hidden dark:block text-yellow-400">light_mode</span>
+                    </button>
+                    <a class="text-sm font-semibold text-slate-900 dark:text-white hover:text-primary transition-colors"
+                        href="#">Sign In</a>
+                    <a class="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40"
+                        href="#">Get Started</a>
+                </div>
+                <div class="md:hidden flex items-center gap-4">
+                    <button
+                        class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+                        onclick="document.documentElement.classList.toggle('dark')">
+                        <span class="material-icons dark:hidden">dark_mode</span>
+                        <span class="material-icons hidden dark:block text-yellow-400">light_mode</span>
+                    </button>
+                    <button class="text-slate-600 dark:text-slate-300 hover:text-primary">
+                        <span class="material-icons text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="relative pt-28 pb-16 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div
+            class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl dark:bg-primary/10 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-teal-400/10 rounded-full blur-3xl dark:bg-teal-900/20 pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <div class="lg:col-span-6 flex flex-col items-start space-y-8">
+                    <div
+                        class="inline-flex items-center gap-2 bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800/50 rounded-full pl-2 pr-4 py-1 animate-fade-in-up">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-white">
+                            <span class="material-icons text-[14px]">bolt</span>
+                        </span>
+                        <span class="text-xs font-semibold text-primary dark:text-teal-400 uppercase tracking-wide">New
+                            Feature</span>
+                        <span class="text-sm text-slate-600 dark:text-slate-300">Auto-Interview Scheduling</span>
+                    </div>
+                    <div class="space-y-4">
+                        <h1
+                            class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                            AI-Powered <br />
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-400">Resume
+                                Screening.</span> <br />
+                            Move Smarter, Not Slower.
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                            An AI-powered resume analyzer built for modern hiring.
+                            It instantly scans resumes, matches them with job descriptions, and delivers clear ATS
+                            scores, skill insights, and hiring decisions—fast, fair, and data-driven.
+                        </p>
+                    </div>
+                    <ul class="space-y-4 pt-2">
+                        <li class="flex items-start gap-3 group">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <span
+                                    class="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
+                            </div>
+                            <span class="text-base text-slate-700 dark:text-slate-300 font-medium">Upload resumes &amp;
+                                job descriptions in bulk</span>
+                        </li>
+                        <li class="flex items-start gap-3 group">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <span
+                                    class="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
+                            </div>
+                            <span class="text-base text-slate-700 dark:text-slate-300 font-medium">Instant ATS score
+                                &amp; skills gap analysis</span>
+                        </li>
+                        <li class="flex items-start gap-3 group">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <span
+                                    class="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
+                            </div>
+                            <span class="text-base text-slate-700 dark:text-slate-300 font-medium">Make data-driven
+                                hiring decisions 10x faster</span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
+                        <a class="flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-primary/25 hover:shadow-primary/40 transform hover:-translate-y-1"
+                            href="#">
+                            <span class="material-icons">play_circle_filled</span>
+                            <span>View Demo</span>
+                        </a>
+                    </div>
+                    <div class="pt-8 w-full border-t border-slate-200 dark:border-slate-800">
+                        <p
+                            class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">
+                            Trusted by HR teams at</p>
+                        <div
+                            class="flex flex-wrap gap-8 items-center opacity-60 dark:opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                            <div class="h-6 w-24 bg-slate-800 dark:bg-white mask-logo rounded"></div>
+                            <div class="h-5 w-20 bg-slate-800 dark:bg-white mask-logo rounded opacity-80"></div>
+                            <div class="h-7 w-28 bg-slate-800 dark:bg-white mask-logo rounded opacity-90"></div>
+                            <div class="h-6 w-24 bg-slate-800 dark:bg-white mask-logo rounded opacity-80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 relative mt-12 lg:mt-0">
+                    <div
+                        class="relative rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 p-2 shadow-2xl shadow-slate-200/50 dark:shadow-black/50 ring-1 ring-slate-200 dark:ring-slate-700">
+                        <div class="relative overflow-hidden rounded-xl aspect-[4/3]">
+                            <div class="absolute inset-0 bg-primary/20 mix-blend-overlay z-10"></div>
+                            <img alt="Hero visual"
+                                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvPO732jRzUgTH9rNIEoXfNyS0ZMf9aiZOZCPRkKD8MKd3RmcMyD0Spy319kMguAMWrFD14MKZK9rDIPvL8xnSCuybYJEboNqRUbK3R4lBcJU6zd4s2zNhv-iYRBhPatNkqeJXFcSvNvrmS5HdphIOxLD6mJc0iIBx9rYwltEfoNtvjVDKeg1OZ95a-mvNaYa_SMlAotHAkvJRaZtdRaLfV0uVLnP0Qk4aMIPrr1O_o2cDIx_vypt3tEDYhedSOeTW6BdkEtA6p54" />
+                        </div>
+                        <div
+                            class="absolute -top-6 -right-6 lg:-right-12 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 z-20 w-48 animate-bounce-slow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden">
+                                    <img alt="Candidate" class="h-full w-full object-cover"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvPO732jRzUgTH9rNIEoXfNyS0ZMf9aiZOZCPRkKD8MKd3RmcMyD0Spy319kMguAMWrFD14MKZK9rDIPvL8xnSCuybYJEboNqRUbK3R4lBcJU6zd4s2zNhv-iYRBhPatNkqeJXFcSvNvrmS5HdphIOxLD6mJc0iIBx9rYwltEfoNtvjVDKeg1OZ95a-mvNaYa_SMlAotHAkvJRaZtdRaLfV0uVLnP0Qk4aMIPrr1O_o2cDIx_vypt3tEDYhedSOeTW6BdkEtA6p54" />
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="h-2 bg-slate-100 dark:bg-slate-700 rounded w-3/4"></div>
+                                    <div class="h-2 bg-slate-100 dark:bg-slate-700 rounded w-1/2"></div>
+                                </div>
+                                <div
+                                    class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center gap-1">
+                                    <span class="material-icons text-primary text-sm">auto_awesome</span>
+                                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Top
+                                        Candidate</span>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute -bottom-6 -left-6 lg:-left-12 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 z-20 w-56 animate-bounce-delayed">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-primary/10 rounded-lg">
+                                        <span class="material-icons text-primary">analytics</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-bold text-slate-900 dark:text-white">ATS Analysis</p>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400">Processing batch #402</p>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                                    <div class="bg-primary h-2 rounded-full w-[85%]"></div>
+                                </div>
+                                <div
+                                    class="flex justify-between mt-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+                                    <span>Scanning skills...</span>
+                                    <span class="text-primary">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute -z-10 inset-0 bg-gradient-to-tr from-primary/30 to-purple-500/30 blur-3xl opacity-30 dark:opacity-20 transform rotate-6 scale-110">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <style>
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes bounce-delayed {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 4s infinite ease-in-out;
+        }
+
+        .animate-bounce-delayed {
+            animation: bounce-delayed 5s infinite ease-in-out 1s;
+        }
+
+        .mask-logo {}
+    </style>
+
+</body>
+
+</html>
