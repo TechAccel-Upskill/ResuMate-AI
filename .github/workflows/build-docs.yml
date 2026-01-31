@@ -8,8 +8,6 @@ on:
       - '.github/workflows/build-docs.yml'
   pull_request:
     branches: [ main, develop ]
-    paths:
-      - 'docs/**/*.md'
   workflow_dispatch:
 
 jobs:
@@ -32,52 +30,54 @@ jobs:
       
       - name: Convert markdown files to PDF
         run: |
+          cd docs
+          
           # Convert main user documentation
-          if [ -f "docs/user_doc.md" ]; then
-            pandoc docs/user_doc.md \
-              -o docs-pdf/user_doc.pdf \
+          if [ -f "user_doc.md" ]; then
+            pandoc user_doc.md \
+              -o ../docs-pdf/user_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: user_doc.pdf"
+            echo "[DONE] Generated: user_doc.pdf"
           fi
           
           # Convert app documentation
-          if [ -f "docs/app/app_doc.md" ]; then
-            pandoc docs/app/app_doc.md \
-              -o docs-pdf/app_doc.pdf \
+          if [ -f "app/app_doc.md" ]; then
+            pandoc app/app_doc.md \
+              -o ../docs-pdf/app_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: app_doc.pdf"
+            echo "[DONE] Generated: app_doc.pdf"
           fi
           
           # Convert database documentation
-          if [ -f "docs/database/database_doc.md" ]; then
-            pandoc docs/database/database_doc.md \
-              -o docs-pdf/database_doc.pdf \
+          if [ -f "database/database_doc.md" ]; then
+            pandoc database/database_doc.md \
+              -o ../docs-pdf/database_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: database_doc.pdf"
+            echo "[DONE] Generated: database_doc.pdf"
           fi
           
           # Convert UI documentation
-          if [ -f "docs/UI/UI_doc.md" ]; then
-            pandoc docs/UI/UI_doc.md \
-              -o docs-pdf/UI_doc.pdf \
+          if [ -f "UI/UI_doc.md" ]; then
+            pandoc UI/UI_doc.md \
+              -o ../docs-pdf/UI_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: UI_doc.pdf"
+            echo "[DONE] Generated: UI_doc.pdf"
           fi
       
       - name: Copy generated PDFs to docs directory
@@ -119,7 +119,7 @@ jobs:
       
       - name: Upload PDFs as artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: documentation-pdfs
           path: docs-pdf/

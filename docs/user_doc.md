@@ -30,11 +30,11 @@ The frontend UI is built using **React**, while AI and automation handle resume 
 
 ## 2. Key Objectives of ResuMate
 
-- ✅ Reduce manual resume screening time
-- ✅ Improve hiring accuracy and consistency
-- ✅ Eliminate bias through data-driven evaluation
-- ✅ Provide ATS-compliant scoring and insights
-- ✅ Enable faster shortlisting and decision-making
+- [x] Reduce manual resume screening time
+- [x] Improve hiring accuracy and consistency
+- [x] Eliminate bias through data-driven evaluation
+- [x] Provide ATS-compliant scoring and insights
+- [x] Enable faster shortlisting and decision-making
 
 ---
 
@@ -84,7 +84,7 @@ Final shortlisting decision is made
 
 ### 5.1 Dashboard Overview
 
-![Dashboard Overview](./UI/01_Dashboard/Dashboard.jpeg)
+![Dashboard Overview](UI/01_Dashboard/Dashboard.jpeg)
 
 The **dashboard** is the central control panel of ResuMate. It provides a real-time overview of recruitment activity.
 
@@ -205,7 +205,7 @@ Shows where the user is in the workflow and confirms this is part of a multi-ste
 | **Review and Save** | Saves JD as draft for later editing |
 | **Continue →** | Moves to next step (Resume Scan / Matching) |
 
-![Job Description](./UI/02_Job_Description/Job_Description.jpeg)
+![Job Description](UI/02_Job_Description/Job_Description.jpeg)
 
 ---
 
@@ -250,7 +250,7 @@ Allows recruiters to forward resumes directly via email.
 | **Cancel** | Discards current upload session (no data processed) |
 | **Scan Resumes** | Triggers AI resume parsing and scoring |
 
-![Resume Scan](./UI/03_Resume_Scan/Resume_Scan.jpeg)
+![Resume Scan](UI/03_Resume_Scan/Resume_Scan.jpeg)
 
 ---
 
@@ -283,7 +283,7 @@ Shows which AI modules are active or pending.
   - Match percentages
   - Detailed AI insights
 
-![Resume Analyzing](./UI/03_Resume_Scan/Resume_Analyzing.png)
+![Resume Analyzing](UI/03_Resume_Scan/Resume_Analyzing.png)
 
 ---
 
@@ -335,7 +335,7 @@ Each candidate card displays:
 | **Review Needed** | Requires manual evaluation |
 | **Weak Candidate** | Limited match for the role |
 
-![Report Overview](./UI/04_Reports/Report.jpeg)
+![Report Overview](UI/04_Reports/Report.jpeg)
 
 ---
 
@@ -405,7 +405,7 @@ Matches shown as percentage bars for quick assessment.
 - Multi-recruiter collaboration
 - Decision documentation for audit trails
 
-![Candidate Report](./UI/04_Reports/Person_Report.jpeg)
+![Candidate Report](UI/04_Reports/Person_Report.jpeg)
 
 ---
 
@@ -458,7 +458,7 @@ Quick switching between email types for efficient communication.
 - **"AI Draft Ready"** – Email is prepared and ready to send
 - **"AI Online"** – AI services are active and available
 
-![Email Center](./UI/05_Email_center/Email_Center.jpeg)
+![Email Center](UI/05_Email_center/Email_Center.jpeg)
 
 ---
 
@@ -506,7 +506,7 @@ Quick switching between email types for efficient communication.
 
 ### 12.4 System Architecture Diagram
 
-![System Architecture](./architecture/diagrams/12.4-system-architecture.png)
+![System Architecture](architecture/diagrams/12.4-system-architecture.png)
 
 **Components Illustrated:**
 - Frontend layer (React UI, State Management, HTTP Client)
@@ -518,7 +518,7 @@ Quick switching between email types for efficient communication.
 
 ### 12.5 Resume Processing Workflow
 
-![Resume Processing Workflow](./architecture/diagrams/12.5-resume-processing-workflow.png)
+![Resume Processing Workflow](architecture/diagrams/12.5-resume-processing-workflow.png)
 
 **Workflow Steps:**
 1. Recruiter uploads resumes
@@ -535,7 +535,7 @@ Quick switching between email types for efficient communication.
 
 ### 12.6 Job-Resume Matching Flow
 
-![Job-Resume Matching](./architecture/diagrams/12.6-job-resume-matching.png)
+![Job-Resume Matching](architecture/diagrams/12.6-job-resume-matching.png)
 
 **Matching Process:**
 1. Job Description received
@@ -552,7 +552,7 @@ Quick switching between email types for efficient communication.
 
 ### 12.7 Data Flow Diagram
 
-![Data Flow Diagram](./architecture/diagrams/12.7-data-flow.png)
+![Data Flow Diagram](architecture/diagrams/12.7-data-flow.png)
 
 This diagram shows all 20 steps of communication between:
 - Recruiter and Frontend
@@ -564,7 +564,7 @@ This diagram shows all 20 steps of communication between:
 
 ### 12.8 Component Interaction Diagram
 
-![Component Interaction](./architecture/diagrams/12.8-component-interaction.png)
+![Component Interaction](architecture/diagrams/12.8-component-interaction.png)
 
 Shows interactions between:
 - **React Components:** Dashboard, JobDescription, ResumeScan, Reports, EmailCenter, CandidateDetail
@@ -593,7 +593,7 @@ Shows interactions between:
 
 ### 12.10 Deployment Architecture
 
-![Deployment Architecture](./architecture/diagrams/12.10-deployment-architecture.png)
+![Deployment Architecture](architecture/diagrams/12.10-deployment-architecture.png)
 
 **Deployment Components:**
 - **Client Devices:** Web Browser
