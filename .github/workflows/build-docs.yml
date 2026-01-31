@@ -41,7 +41,7 @@ jobs:
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: user_doc.pdf"
+            echo "[DONE] Generated: user_doc.pdf"
           fi
           
           # Convert app documentation
@@ -53,7 +53,7 @@ jobs:
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: app_doc.pdf"
+            echo "[DONE] Generated: app_doc.pdf"
           fi
           
           # Convert database documentation
@@ -65,7 +65,7 @@ jobs:
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: database_doc.pdf"
+            echo "[DONE] Generated: database_doc.pdf"
           fi
           
           # Convert UI documentation
@@ -77,7 +77,7 @@ jobs:
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt
-            echo "✓ Generated: UI_doc.pdf"
+            echo "[DONE] Generated: UI_doc.pdf"
           fi
       
       - name: Copy generated PDFs to docs directory
