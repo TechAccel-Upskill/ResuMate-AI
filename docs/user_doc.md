@@ -504,4 +504,103 @@ Quick switching between email types for efficient communication.
 3. MongoDB stores structured resumes, scores, and reports
 4. Results are returned to frontend in real-time for user display
 
+### 12.4 System Architecture Diagram
+
+![System Architecture](./architecture/diagrams/12.4-system-architecture.png)
+
+**Components Illustrated:**
+- Frontend layer (React UI, State Management, HTTP Client)
+- API Gateway with REST endpoints
+- Backend microservices (Job Description, Resume Parsing, Matching, Reports, Email)
+- Workflow orchestration (n8n)
+- MongoDB data layer
+- External AI/LLM and email service integrations
+
+### 12.5 Resume Processing Workflow
+
+![Resume Processing Workflow](./architecture/diagrams/12.5-resume-processing-workflow.png)
+
+**Workflow Steps:**
+1. Recruiter uploads resumes
+2. Files stored temporarily
+3. n8n workflow triggered
+4. Text extraction from PDF/DOCX
+5. Data parsing (Name, Email, Experience)
+6. Skill and technology extraction
+7. ATS score calculation
+8. Data storage in MongoDB
+9. Candidate report generation
+10. Frontend update with results
+11. Display in Reports module
+
+### 12.6 Job-Resume Matching Flow
+
+![Job-Resume Matching](./architecture/diagrams/12.6-job-resume-matching.png)
+
+**Matching Process:**
+1. Job Description received
+2. Extract JD requirements (skills, experience, location)
+3. Retrieve candidate resumes from database
+4. Compare skill match (hard & soft skills)
+5. Evaluate experience alignment
+6. Check location fit
+7. Calculate composite match score
+8. Classify candidate (Top/Strong/Good/Review/Weak)
+9. Generate detailed match report
+10. Store results in MongoDB
+11. Display in Reports module
+
+### 12.7 Data Flow Diagram
+
+![Data Flow Diagram](./architecture/diagrams/12.7-data-flow.png)
+
+This diagram shows all 20 steps of communication between:
+- Recruiter and Frontend
+- Frontend and Backend Services via REST API
+- Backend and n8n Workflows
+- n8n and AI/LLM services
+- Backend and MongoDB
+- Backend and Email Service
+
+### 12.8 Component Interaction Diagram
+
+![Component Interaction](./architecture/diagrams/12.8-component-interaction.png)
+
+Shows interactions between:
+- **React Components:** Dashboard, JobDescription, ResumeScan, Reports, EmailCenter, CandidateDetail
+- **Service Layer:** JobService, ResumeService, MatchingService, ReportService, EmailService
+- **Data Access Layer:** MongoDBRepository
+
+### 12.9 Technology Stack Summary
+
+**Frontend:**
+- React.js with component-based architecture
+- Redux/Context for state management
+- HTTP Client for API communication
+
+**Backend:**
+- Java for business logic and services
+- n8n for workflow automation and orchestration
+- REST APIs for client-server communication
+
+**Data Storage:**
+- MongoDB for NoSQL document storage
+- Supports flexible schema for diverse resume data
+
+**External Integrations:**
+- AI/LLM services for resume analysis and matching
+- Email service (SMTP) for candidate communication
+
+### 12.10 Deployment Architecture
+
+![Deployment Architecture](./architecture/diagrams/12.10-deployment-architecture.png)
+
+**Deployment Components:**
+- **Client Devices:** Web Browser
+- **Web Server:** Nginx/Apache with React static files
+- **Application Server:** Java Backend Services
+- **Workflow Server:** n8n Workflow Engine
+- **Database Server:** MongoDB Instance
+- **External Services:** AI/LLM API, SMTP Server
+
 ---

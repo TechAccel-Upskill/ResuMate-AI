@@ -1,0 +1,59 @@
+@startuml ResuMate-Architecture
+!define DIRECTION top to bottom
+skinparam backgroundColor #1e1e1e
+skinparam textBackgroundColor #ffffff
+skinparam ArrowColor #0ea5e9
+skinparam borderColor #0ea5e9
+
+package "Frontend Layer" {
+    component [React UI\n(Dashboard, Job Description,\nResume Scan, Reports)] as ReactUI
+    component [State Management\n(Redux/Context)] as StateManagement
+    component [HTTP Client] as HTTPClient
+}
+
+package "API Gateway" {
+    component [REST API\nEndpoints] as APIGateway
+}
+
+package "Backend Services" {
+    component [Job Description\nService] as JDService
+    component [Resume Parsing\nService] as RPService
+    component [Matching Engine\nService] as MatchService
+    component [Report Generation\nService] as ReportService
+    component [Email Automation\nService] as EmailService
+}
+
+package "Workflow Orchestration" {
+    component [n8n Workflows\n(Resume Processing,\nAI Integration)] as N8N
+}
+
+package "Data Layer" {
+    database [MongoDB\n(Jobs, Resumes,\nCandidates, Reports)] as MongoDB
+}
+
+package "External Services" {
+    component [AI/LLM\nIntegration] as AIService
+    component [Email Service\n(SMTP)] as EmailSMTP
+}
+
+ReactUI --> StateManagement
+StateManagement --> HTTPClient
+HTTPClient --> APIGateway
+
+APIGateway --> JDService
+APIGateway --> RPService
+APIGateway --> MatchService
+APIGateway --> ReportService
+APIGateway --> EmailService
+
+JDService --> MongoDB
+RPService --> N8N
+N8N --> AIService
+N8N --> MongoDB
+
+MatchService --> MongoDB
+ReportService --> MongoDB
+EmailService --> EmailSMTP
+EmailService --> MongoDB
+
+@enduml
