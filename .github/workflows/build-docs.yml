@@ -30,10 +30,12 @@ jobs:
       
       - name: Convert markdown files to PDF
         run: |
+          cd docs
+          
           # Convert main user documentation
-          if [ -f "docs/user_doc.md" ]; then
-            pandoc docs/user_doc.md \
-              -o docs-pdf/user_doc.pdf \
+          if [ -f "user_doc.md" ]; then
+            pandoc user_doc.md \
+              -o ../docs-pdf/user_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
@@ -43,9 +45,9 @@ jobs:
           fi
           
           # Convert app documentation
-          if [ -f "docs/app/app_doc.md" ]; then
-            pandoc docs/app/app_doc.md \
-              -o docs-pdf/app_doc.pdf \
+          if [ -f "app/app_doc.md" ]; then
+            pandoc app/app_doc.md \
+              -o ../docs-pdf/app_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
@@ -55,9 +57,9 @@ jobs:
           fi
           
           # Convert database documentation
-          if [ -f "docs/database/database_doc.md" ]; then
-            pandoc docs/database/database_doc.md \
-              -o docs-pdf/database_doc.pdf \
+          if [ -f "database/database_doc.md" ]; then
+            pandoc database/database_doc.md \
+              -o ../docs-pdf/database_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
@@ -67,9 +69,9 @@ jobs:
           fi
           
           # Convert UI documentation
-          if [ -f "docs/UI/UI_doc.md" ]; then
-            pandoc docs/UI/UI_doc.md \
-              -o docs-pdf/UI_doc.pdf \
+          if [ -f "UI/UI_doc.md" ]; then
+            pandoc UI/UI_doc.md \
+              -o ../docs-pdf/UI_doc.pdf \
               --toc \
               --number-sections \
               -V documentclass=article \
