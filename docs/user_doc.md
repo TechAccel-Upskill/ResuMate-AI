@@ -30,11 +30,11 @@ The frontend UI is built using **React**, while AI and automation handle resume 
 
 ## 2. Key Objectives of ResuMate
 
-- [✓] Reduce manual resume screening time
-- [✓] Improve hiring accuracy and consistency
-- [✓] Eliminate bias through data-driven evaluation
-- [✓] Provide ATS-compliant scoring and insights
-- [✓] Enable faster shortlisting and decision-making
+- [x] Reduce manual resume screening time
+- [x] Improve hiring accuracy and consistency
+- [x] Eliminate bias through data-driven evaluation
+- [x] Provide ATS-compliant scoring and insights
+- [x] Enable faster shortlisting and decision-making
 
 ---
 
