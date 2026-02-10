@@ -1,0 +1,234 @@
+.resources-page {
+    background-color: #020617;
+    /* Very dark background */
+    color: #ffffff;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 4rem;
+}
+
+.resources-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header Section */
+.resources-header {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
+.resources-pill {
+    display: inline-block;
+    background-color: rgba(20, 184, 166, 0.1);
+    /* Teal/Primary tint */
+    color: #14b8a6;
+    /* Teal-500 */
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.resources-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.resources-subtitle {
+    color: #94a3b8;
+    /* Slate-400 */
+    font-size: 1.125rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Content Layout */
+.resources-content-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+}
+
+/* Sidebar */
+.resources-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.sidebar-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    /* Slate-500 */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    border-right: 2px solid transparent;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    color: #ffffff;
+}
+
+.sidebar-item.active {
+    border-right-color: #14b8a6;
+}
+
+.sidebar-item .material-icons {
+    font-size: 1.25rem;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    background-color: #0f172a;
+    /* Slate-900 */
+    border: 1px solid #1e293b;
+    /* Slate-800 */
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 0.75rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #14b8a6;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 1.25rem;
+}
+
+/* Documentation Card */
+.doc-card {
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+    /* Glow effect */
+    box-shadow: 0 0 50px -12px rgba(20, 184, 166, 0.1);
+}
+
+.doc-content {
+    padding: 3rem;
+}
+
+.doc-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.doc-description {
+    color: #cbd5e1;
+    /* Slate-300 */
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    max-width: 800px;
+}
+
+.learning-path-title {
+    color: #14b8a6;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.learning-path-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.learning-path-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #94a3b8;
+}
+
+.learning-path-item .material-icons {
+    color: #14b8a6;
+    font-size: 1.25rem;
+}
+
+.doc-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.view-doc-btn {
+    color: #14b8a6;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+}
+
+.view-doc-btn:hover {
+    gap: 0.75rem;
+}
+
+.download-btn {
+    color: #64748b;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.download-btn:hover {
+    color: #94a3b8;
+}
+
+@media (max-width: 1024px) {
+    .resources-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .resources-sidebar {
+        display: none;
+        /* Hide sidebar on mobile for now or make it collapsible */
+    }
+}

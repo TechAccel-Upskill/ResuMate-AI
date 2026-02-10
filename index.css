@@ -1,0 +1,234 @@
+/* Global Styles & Theme Variables */
+:root {
+  /* Common Variables */
+  --primary: #5b5fc7;
+  --primary-hover: #4a4eaa;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* Default to LIGHT Mode variables (per CSS hierarchy, but we use data-theme attribute) */
+  /* Actually React sets data-theme='dark' or 'light'. 
+     We should define defaults here (likely Light) and override in [data-theme='dark'] 
+  */
+
+  /* LIGHT MODE (Matches Reference Image) */
+  --bg-page: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  /* Or transparent/match page */
+
+  --border-subtle: #e2e8f0;
+  --border-focus: #94a3b8;
+
+  --text-main: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 15px rgba(99, 102, 241, 0.15);
+
+  --bg-hover: #f1f5f9;
+  --bg-active: #e2e8f0;
+
+  --card-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  --button-secondary-bg: #ffffff;
+  --button-secondary-border: #cbd5e1;
+  --button-secondary-text: #475569;
+
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: transparent;
+}
+
+[data-theme='dark'] {
+  /* DARK MODE (Premium Enterprise Theme) */
+  --bg-page: #0B0F17;
+  /* Deep rich navy-black */
+  --bg-sidebar: #111623;
+  /* Slightly lighter than page */
+  --bg-card: #1A202C;
+  /* Clear surface separation */
+  --bg-header: #0B0F17;
+  /* Match page bg for seamless look */
+
+  --border-subtle: #2D3748;
+  /* Visible slate border for separation */
+  --border-focus: #4A5568;
+  /* Lighter border for focus/hover */
+
+  --text-main: #FFFFFF;
+  /* Pure White for headings/primary */
+  --text-secondary: #E2E8F0;
+  /* High readability slate-200 */
+  --text-muted: #94A3B8;
+  /* Slate-400 for metadata */
+  --text-inverse: #000000;
+
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-sm: none;
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.25);
+  /* Enhanced primary glow */
+
+  --bg-hover: #2D3748;
+  /* Distinct hover state */
+  --bg-active: #2D3748;
+
+  --card-gradient: linear-gradient(180deg, #1A202C 0%, #171923 100%);
+  --button-secondary-bg: #1A202C;
+  --button-secondary-border: #4A5568;
+  --button-secondary-text: #FFFFFF;
+
+  --scrollbar-thumb: #4A5568;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global Transitions for smooth theme switch */
+div,
+nav,
+aside,
+section,
+header,
+button,
+input,
+table,
+th,
+td,
+span,
+h1,
+h2,
+h3,
+h4,
+p,
+a {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ========================================
+   DARK MODE ONLY - Typography Enhancements
+   ======================================== */
+
+[data-theme='dark'] {
+
+  /* Main Headings - Pure White & Bold */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #FFFFFF !important;
+    font-weight: 700;
+  }
+
+  /* Section Titles, Card Titles, Table Headers */
+  .stat-title,
+  .card-title,
+  .section-title,
+  .widget-title,
+  .hero-title,
+  th,
+  .table-header,
+  .ms-val,
+  .big-score,
+  .stat-value,
+  .score-value,
+  .metric-value {
+    color: #FFFFFF !important;
+    font-weight: 600;
+  }
+
+  /* Primary Body Text - Off-white */
+  p,
+  .body-text,
+  .description,
+  .content-text,
+  td,
+  .text-primary {
+    color: #E5E7EB;
+    font-weight: 500;
+  }
+
+  /* Secondary / Helper Text - Light Gray */
+  .text-secondary,
+  .helper-text,
+  .subtitle,
+  .meta-text,
+  .info-text {
+    color: #CBD5E1;
+    font-weight: 400;
+  }
+
+  /* Muted / Placeholder Text - Readable Gray */
+  .text-muted,
+  .placeholder,
+  .label,
+  .meta,
+  ::placeholder {
+    color: #94A3B8;
+    font-weight: 400;
+  }
+
+  /* Ensure stat cards and metrics are bold and white */
+  .stat-card .stat-value,
+  .metric-card .metric-value,
+  .score-card .score-value {
+    color: #FFFFFF !important;
+    font-weight: 700;
+  }
+
+  /* Table improvements */
+  thead th {
+    color: #FFFFFF !important;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  tbody td {
+    color: #E5E7EB;
+  }
+
+  /* Card and section headers */
+  .card-header,
+  .section-header,
+  .widget-header {
+    color: #FFFFFF !important;
+    font-weight: 600;
+  }
+}
