@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+
 import './EmailCenter.css';
 import '../pages/Dashboard.css';
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
 import ThemeToggle from '../components/ThemeToggle';
 
 const EmailCenter = () => {
-    const { user, signOut } = useAuth();
-    // const { id } = useParams(); // Use this to fetch candidate data in real app
-
     // Mock Data for "Sarah Jenkins" or "Alex Jensen"
     const candidate = {
         name: 'Alex Jensen',
@@ -23,9 +20,7 @@ const EmailCenter = () => {
 
     const [showModal, setShowModal] = useState(false); // Modal state
 
-    const handleSignOut = async () => {
-        await signOut();
-    };
+
 
     const handleSendClick = () => {
         setShowModal(true);

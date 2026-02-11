@@ -1,19 +1,15 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+
 import './Reports.css';
 import '../pages/Dashboard.css'; // Reusing some common tokens
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
 import ThemeToggle from '../components/ThemeToggle';
 
 const Reports = () => {
-    const { user, signOut } = useAuth();
-    const navigate = useNavigate();
 
-    const handleSignOut = async () => {
-        await signOut();
-        navigate('/login');
-    };
+
+
 
     const candidates = [
         {

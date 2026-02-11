@@ -9,7 +9,6 @@ import AuthPage from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
 import JobDescription from "./pages/JobDescription";
 import ResumeScan from "./pages/ResumeScan";
-import Register from "./pages/Register";
 import Reports from "./pages/Reports";
 import CandidateReport from "./pages/CandidateReport";
 import EmailCenter from "./pages/EmailCenter";

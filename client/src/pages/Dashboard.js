@@ -6,13 +6,10 @@ import RecruiterProfileCard from '../components/RecruiterProfileCard';
 import ThemeToggle from '../components/ThemeToggle';
 
 function Dashboard() {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
-  const handleSignOut = async () => {
-    await signOut();
-    navigate('/login');
-  };
+
 
   return (
     <div className="dashboard-container">
@@ -183,7 +180,7 @@ function Dashboard() {
               <span className="material-icons" style={{ color: 'var(--text-muted)' }}>history</span>
               Recent Scans
             </div>
-            <a href="#" style={{ color: 'var(--primary)', fontSize: '13px', textDecoration: 'none', fontWeight: '500' }}>View All →</a>
+            <button onClick={() => navigate('/reports')} style={{ color: 'var(--primary)', fontSize: '13px', textDecoration: 'none', fontWeight: '500', background: 'none', border: 'none', cursor: 'pointer' }}>View All →</button>
           </div>
           <div className="table-container">
             <table className="custom-table">

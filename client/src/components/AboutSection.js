@@ -8,21 +8,22 @@ function AboutSection() {
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
+            (entries) => {
+                entries.forEach((entry) => {
+                    setIsVisible(entry.isIntersecting);
+                });
             },
             { threshold: 0.1 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        const currentSection = sectionRef.current;
+        if (currentSection) {
+            observer.observe(currentSection);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (currentSection) {
+                observer.unobserve(currentSection);
             }
         };
     }, []);
@@ -216,12 +217,13 @@ function AboutSection() {
                                     </a>
 
                                     {/* Email - Default */}
-                                    <a
-                                        href="#"
+                                    <button
+                                        onClick={() => window.location.href = 'mailto:contact@resumate.ai'}
                                         className="w-10 h-10 rounded-full bg-slate-800/50 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-all duration-300 group"
+                                        style={{ cursor: 'pointer' }}
                                     >
                                         <span className="material-icons text-xl group-hover:scale-110 transition-transform">email</span>
-                                    </a>
+                                    </button>
                                 </div>
 
                                 {/* Divider & Footer */}

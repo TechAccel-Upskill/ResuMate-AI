@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+
 import './ResumeScan.css';
 import '../pages/Dashboard.css'; // Common variables
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
@@ -75,8 +75,7 @@ const ResumeScan = () => {
             </div>
         );
     };
-    const { user, signOut } = useAuth();
-    const navigate = useNavigate();
+
 
     // Scan State
     const [isScanning, setIsScanning] = useState(false);
@@ -104,10 +103,7 @@ const ResumeScan = () => {
 
     const logContainerRef = useRef(null);
 
-    const handleSignOut = async () => {
-        await signOut();
-        navigate('/login');
-    };
+
 
 
 

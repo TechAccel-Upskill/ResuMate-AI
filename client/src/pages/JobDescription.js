@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // added useNavigate
-import { useAuth } from '../context/AuthProvider'; // added useAuth
+
 import './JobDescription.css';
 import '../pages/Dashboard.css';
 
@@ -17,7 +17,6 @@ import ThemeToggle from '../components/ThemeToggle';
 // Supabase import removed
 
 const JobDescription = () => {
-    const { user, signOut } = useAuth(); // Added hook
     const navigate = useNavigate(); // Added hook
 
     // 🧠 SINGLE SOURCE OF TRUTH
@@ -35,7 +34,7 @@ const JobDescription = () => {
     const [rawJD, setRawJD] = useState("");
     const [expandedSection, setExpandedSection] = useState('job roles');
     const [showReview, setShowReview] = useState(false);
-    const [isSaving, setIsSaving] = useState(false);
+
 
     // Separate state for Experience Range slider as it's a UI control initially
     // We will sync this to draft.experience on save/review if source is manual
@@ -124,7 +123,7 @@ const JobDescription = () => {
     const handleSaveJob = async () => {
         console.log("🔥 Save button clicked - frontend");
         try {
-            setIsSaving(true);
+
 
             // Prepare payload for Backend
             const payload = {
@@ -173,7 +172,7 @@ const JobDescription = () => {
             console.error(error);
             alert("❌ Error saving Job Description");
         } finally {
-            setIsSaving(false);
+
         }
     };
 
