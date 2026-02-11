@@ -1,10 +1,10 @@
-/* ResumeScan.css */
+/* ResumeScan.css - Universal Theme */
 
 .resume-scan-container {
     display: flex;
     height: 100vh;
-    background-color: var(--dash-bg);
-    color: var(--dash-text-main);
+    background-color: var(--bg-page);
+    color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow: hidden;
 }
@@ -19,7 +19,6 @@
     overflow-y: auto;
     position: relative;
     padding-bottom: 100px;
-    /* Space for floating bar */
 }
 
 /* Header */
@@ -29,15 +28,15 @@
 
 .step-badge {
     display: inline-block;
-    background: #1e293b;
-    color: #94a3b8;
+    background: var(--bg-card);
+    color: var(--text-muted);
     font-size: 11px;
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 4px;
     margin-bottom: 12px;
     letter-spacing: 0.5px;
-    border: 1px solid #334155;
+    border: 1px solid var(--border-subtle);
     text-transform: uppercase;
 }
 
@@ -45,11 +44,13 @@
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 12px;
-    color: white;
+    color: var(--text-main);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    /* Subtle title glow */
 }
 
 .rs-desc {
-    color: var(--dash-text-muted);
+    color: var(--text-muted);
     font-size: 15px;
     max-width: 600px;
     line-height: 1.6;
@@ -65,18 +66,27 @@
 
 /* Card Common */
 .upload-card {
-    background: #0f1219;
-    /* Or subtle variation */
-    border: 1px solid var(--dash-border);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 32px;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-card);
+    /* Use premium shadow */
+    transition: all 0.3s ease;
+}
+
+.upload-card.email-card:hover,
+.upload-card.folder-card:hover {
+    border-color: var(--border-focus);
+    box-shadow: var(--shadow-glow);
+    /* Hover glow */
 }
 
 /* Left Card: Email */
 .upload-card.email-card {
-    background: #11151d;
+    background: var(--bg-card);
     justify-content: flex-start;
 }
 
@@ -88,26 +98,30 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .icon-blue {
     background: rgba(59, 130, 246, 0.1);
-    color: #60a5fa;
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .icon-purple {
     background: rgba(99, 102, 241, 0.1);
-    color: #818cf8;
+    color: #6366f1;
+    border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .uc-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 12px;
+    color: var(--text-main);
 }
 
 .uc-desc {
-    color: var(--dash-text-muted);
+    color: var(--text-muted);
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 32px;
@@ -116,51 +130,49 @@
 .email-box-label {
     font-size: 11px;
     text-transform: uppercase;
-    color: #64748b;
+    color: var(--text-secondary);
     font-weight: 600;
     margin-bottom: 8px;
 }
 
 .email-input-container {
-    background: #0f1219;
-    border: 1px solid #334155;
+    background: var(--bg-page);
+    /* Inner input bg */
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 12px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
-    /* Add gap for items */
 }
 
 .check-icon {
-    color: #10b981;
-    /* Emerald-500 */
+    color: var(--success);
     font-size: 18px;
 }
 
 .email-text {
     flex: 1;
-    /* Take available space */
     font-family: monospace;
-    color: #e2e8f0;
+    color: var(--text-main);
     font-size: 13px;
 }
 
 .copy-icon {
-    color: #94a3b8;
+    color: var(--text-muted);
     cursor: pointer;
     font-size: 16px;
 }
 
 .copy-icon:hover {
-    color: white;
+    color: var(--text-main);
 }
 
 /* Secondary Source Button */
 .add-source-btn {
     background: transparent;
-    border: 1px dashed #334155;
-    color: #94a3b8;
+    border: 1px dashed var(--border-subtle);
+    color: var(--text-muted);
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -175,14 +187,14 @@
 }
 
 .add-source-btn:hover {
-    border-color: #64748b;
-    color: #cbd5e1;
-    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+    background: var(--bg-hover);
 }
 
 /* Right Card: Folder (Dashed) */
 .upload-card.folder-card {
-    border: 2px dashed #334155;
+    border: 2px dashed var(--border-subtle);
     background: transparent;
     align-items: center;
     justify-content: center;
@@ -192,14 +204,15 @@
 }
 
 .upload-card.folder-card:hover {
-    border-color: #5b5fc7;
-    background: rgba(91, 95, 199, 0.02);
+    border-color: var(--primary);
+    background: rgba(91, 95, 199, 0.05);
+    /* Slight tint */
 }
 
 .bulk-btn {
-    background: rgba(91, 95, 199, 0.15);
-    color: #a5b4fc;
-    border: 1px solid rgba(91, 95, 199, 0.3);
+    background: rgba(91, 95, 199, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(91, 95, 199, 0.2);
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
@@ -212,27 +225,26 @@
 }
 
 .bulk-btn:hover {
-    background: rgba(91, 95, 199, 0.25);
-    color: white;
+    background: rgba(91, 95, 199, 0.2);
+    color: var(--primary-hover);
 }
 
 .supported-text {
     font-size: 12px;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
-/* FLOATING BAR (Now Static) */
+/* FLOATING BAR */
 .floating-bar {
-    /* Removed absolute positioning to prevent overlay */
     margin-top: 40px;
-    background: #151a23;
-    border: 1px solid var(--dash-border);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-card);
     z-index: 10;
 }
 
@@ -246,12 +258,12 @@
     position: relative;
     width: 40px;
     height: 40px;
-    background: #1e293b;
+    background: var(--bg-active);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #818cf8;
+    color: var(--primary);
 }
 
 .notif-bubble {
@@ -260,7 +272,7 @@
     right: -6px;
     width: 18px;
     height: 18px;
-    background: #5b5fc7;
+    background: var(--primary);
     color: white;
     font-size: 10px;
     border-radius: 50%;
@@ -268,19 +280,19 @@
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    border: 2px solid #151a23;
+    border: 2px solid var(--bg-card);
 }
 
 .status-text h4 {
     font-size: 14px;
     font-weight: 600;
     margin: 0 0 2px 0;
-    color: white;
+    color: var(--text-main);
 }
 
 .status-text p {
     font-size: 11px;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin: 0;
 }
 
@@ -293,7 +305,7 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 2px solid #151a23;
+    border: 2px solid var(--bg-card);
     margin-left: -8px;
 }
 
@@ -303,7 +315,7 @@
 
 .view-list-link {
     font-size: 13px;
-    color: #818cf8;
+    color: var(--primary);
     text-decoration: none;
     font-weight: 500;
     margin-left: 12px;
@@ -318,14 +330,14 @@
 .btn-cancel {
     background: transparent;
     border: none;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 14px;
     cursor: pointer;
     font-weight: 500;
 }
 
 .btn-scan {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    background: var(--primary);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -340,25 +352,16 @@
 }
 
 .btn-scan:hover {
-    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+    background: var(--primary-hover);
     transform: translateY(-1px);
 }
 
-/* =================================================================
-   SCANNING UI STYLES
-   ================================================================= */
-/* =================================================================
-   SCANNING UI STYLES
-   ================================================================= */
+/* SCANNING UI STYLES */
 
-/* Scanning Active Mode for Main Container */
 .rs-main.scanning-active {
     overflow: hidden;
-    /* Remove scroll */
     justify-content: center;
-    /* Center vertically */
     padding-bottom: 0;
-    /* Remove extra padding */
     height: 100vh;
 }
 
@@ -369,10 +372,8 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    /* Take full available height */
     animation: fadeIn 0.5s ease;
     margin-top: -40px;
-    /* Offset for header/centering adjustment */
 }
 
 @keyframes fadeIn {
@@ -391,20 +392,20 @@
     position: relative;
     width: 80px;
     height: 80px;
-    background: #0f172a;
-    border: 2px solid #334155;
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
     margin-top: 20px;
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    box-shadow: var(--shadow-glow);
 }
 
 .scanner-icon {
     font-size: 40px;
-    color: #818cf8;
+    color: var(--primary);
     z-index: 2;
 }
 
@@ -412,7 +413,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 1px solid #6366f1;
+    border: 1px solid var(--primary);
     border-radius: 20px;
     opacity: 0;
     z-index: 0;
@@ -433,7 +434,7 @@
 
 .sparkle {
     position: absolute;
-    color: #6366f1;
+    color: var(--primary);
     font-size: 14px;
     animation: twinkle 1.5s infinite alternate;
 }
@@ -465,13 +466,13 @@
 .scan-title {
     font-size: 28px;
     font-weight: 700;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 12px;
     text-align: center;
 }
 
 .scan-subtitle {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 15px;
     text-align: center;
     max-width: 500px;
@@ -490,8 +491,8 @@
 
 /* Left: Monitor Card */
 .scan-monitor {
-    background: #0f1219;
-    border: 1px solid #334155;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -506,19 +507,19 @@
 }
 
 .monitor-header h4 {
-    color: white;
+    color: var(--text-main);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .monitor-header p {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 12px;
 }
 
 .monitor-percent h1 {
-    color: #6366f1;
+    color: var(--primary);
     font-size: 32px;
     font-weight: 700;
     line-height: 1;
@@ -531,7 +532,7 @@
 }
 
 .scan-progress-bar-bg {
-    background: #1e293b;
+    background: var(--bg-active);
     height: 8px;
     border-radius: 4px;
     overflow: hidden;
@@ -547,15 +548,16 @@
 
 .scan-terminal {
     background: #0b0f15;
+    /* Keep terminal dark always */
     border-radius: 8px;
     padding: 16px;
     font-family: 'Fira Code', monospace;
     font-size: 12px;
-    color: #10b981;
+    color: var(--success);
     height: 140px;
     overflow-y: auto;
     margin-bottom: 20px;
-    border: 1px solid #1e293b;
+    border: 1px solid var(--border-subtle);
 }
 
 .terminal-line {
@@ -567,7 +569,7 @@
     display: inline-block;
     width: 8px;
     height: 14px;
-    background: #10b981;
+    background: var(--success);
     animation: blink 1s infinite;
     vertical-align: middle;
 }
@@ -586,19 +588,19 @@
 }
 
 .cancel-text {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 13px;
     cursor: pointer;
 }
 
 .cancel-text:hover {
-    color: white;
+    color: var(--text-main);
 }
 
 .bg-run-btn {
-    background: #1e293b;
-    border: 1px solid #334155;
-    color: white;
+    background: var(--bg-active);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -609,7 +611,7 @@
 }
 
 .bg-run-btn:hover {
-    background: #334155;
+    background: var(--bg-hover);
 }
 
 /* Right: Steps */
@@ -637,7 +639,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #1e293b;
+    background: var(--bg-active);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -646,12 +648,12 @@
 
 .step-item.completed .step-icon {
     background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    color: var(--success);
 }
 
 .step-item.processing .step-icon {
     background: rgba(99, 102, 241, 0.1);
-    color: #6366f1;
+    color: var(--primary);
 }
 
 .spin {
@@ -665,19 +667,18 @@
 }
 
 .step-content h4 {
-    color: white;
+    color: var(--text-main);
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .step-content p {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 13px;
     margin: 0;
 }
 
-/* Complete Action */
 .scan-complete-action {
     margin-top: 40px;
     animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -696,7 +697,7 @@
 }
 
 .check-report-btn {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    background: var(--primary);
     color: white;
     padding: 14px 32px;
     border-radius: 12px;
@@ -705,17 +706,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+    box-shadow: var(--shadow-glow);
     transition: all 0.2s;
 }
 
 .check-report-btn:hover {
     box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
 }
-
-/* =================================================================
-   NEW FEATURES STYLES
-   ================================================================= */
 
 /* Custom Dropdown */
 .custom-dropdown {
@@ -724,21 +721,21 @@
 }
 
 .dropdown-trigger {
-    background: #0f1219;
-    border: 1px solid #334155;
+    background: var(--bg-page);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 10px 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    color: white;
+    color: var(--text-main);
     font-size: 13px;
     transition: all 0.2s;
 }
 
 .dropdown-trigger:hover {
-    border-color: #64748b;
+    border-color: var(--text-secondary);
 }
 
 .dropdown-menu {
@@ -746,11 +743,11 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     margin-top: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-card);
     z-index: 50;
     overflow: hidden;
 }
@@ -762,21 +759,20 @@
     gap: 8px;
     cursor: pointer;
     font-size: 13px;
-    color: #cbd5e1;
+    color: var(--text-main);
     transition: background 0.2s;
 }
 
 .dropdown-item:hover {
-    background: rgba(99, 102, 241, 0.1);
-    color: white;
+    background: var(--bg-hover);
+    color: var(--primary);
 }
 
 .dropdown-item.selected {
-    background: rgba(99, 102, 241, 0.2);
-    color: #818cf8;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
 }
 
-/* Email Sources */
 .email-sources-list {
     display: flex;
     flex-direction: column;
@@ -803,35 +799,46 @@
     }
 }
 
-.remove-source-btn {
-    background: transparent;
-    border: none;
-    color: #475569;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
+/* Dark Mode Overrides for Dropdown Visibility */
+[data-theme='dark'] .dropdown-trigger {
+    color: #FFFFFF !important;
 }
 
-.remove-source-btn:hover {
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
+[data-theme='dark'] .dropdown-item {
+    color: #FFFFFF !important;
 }
 
-/* Folder Trigger Link */
-.folder-trigger {
-    color: #818cf8;
-    text-decoration: underline;
-    font-weight: 500;
-    cursor: pointer;
-    position: relative;
-    z-index: 5;
-    /* Ensure it floats above the parent click */
+[data-theme='dark'] .dropdown-trigger span {
+    color: #FFFFFF !important;
 }
 
-.folder-trigger:hover {
-    color: #a5b4fc;
+/* ========================================
+   DARK MODE OVERRIDES - Resume Scan
+   ======================================== */
+
+/* Dark Mode: Enhanced Sidebar Navigation States */
+[data-theme='dark'] .nav-item {
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .nav-item:hover {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .nav-item:hover .material-icons {
+    color: #0F172A !important;
+}
+
+[data-theme='dark'] .nav-item.active {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] .nav-item.active .material-icons {
+    color: #0F172A !important;
 }

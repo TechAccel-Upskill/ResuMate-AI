@@ -164,7 +164,7 @@ function AboutSection() {
                                 {/* Avatar */}
                                 <div className="w-32 h-32 rounded-full border-4 border-[#0a0f1a] shadow-lg mb-5 overflow-hidden bg-slate-800 relative">
                                     <img
-                                        src="/assets/images/alex-morgan.jpg"
+                                        src="/assets/images/manas.png"
                                         alt="Manas Thumu"
                                         className="w-full h-full object-cover"
                                     />

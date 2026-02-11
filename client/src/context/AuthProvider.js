@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../supabase";
 
 const AuthContext = createContext();
@@ -12,6 +13,8 @@ export function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authMessage, setAuthMessage] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     let mounted = true;
@@ -26,10 +29,23 @@ export function AuthProvider({ children }) {
 
     getSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (mounted) {
         handleSession(session);
         setLoading(false);
+
+        // Centralized Routing Logic
+        if (event === 'SIGNED_IN' && session) {
+          // If user is on auth pages, redirect to dashboard
+          if (location.pathname === '/login' || location.pathname === '/register') {
+            navigate('/dashboard', { replace: true });
+          }
+        }
+
+        if (event === 'SIGNED_OUT') {
+          // Always redirect to home page on logout
+          navigate('/', { replace: true });
+        }
       }
     });
 
@@ -96,7 +112,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/login`,
+        emailRedirectTo: `${window.location.origin}/dashboard`,
       },
     });
     return { data, error };
@@ -106,7 +122,7 @@ export function AuthProvider({ children }) {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/login`,
+        redirectTo: `${window.location.origin}/dashboard`,
       },
     });
     return { data, error };

@@ -1,28 +1,11 @@
-/* JobDescription.css - Refactored for Target UI */
-
-:root {
-    --jd-bg: #0f172a;
-    /* Darker background */
-    --jd-card-bg: #1e293b;
-    /* Slate-800 for cards */
-    --jd-border: #334155;
-    /* Slate-700 */
-    --jd-primary: #818cf8;
-    /* Indigo-400 */
-    --jd-text-main: #f8fafc;
-    /* Slate-50 */
-    --jd-text-muted: #94a3b8;
-    /* Slate-400 */
-    --jd-accent-blue: #3b82f6;
-    --jd-accent-purple: #a855f7;
-}
+/* JobDescription.css - Universal Theme */
 
 /* GENERAL CONTAINER */
 .job-desc-container {
     display: flex;
     height: 100vh;
-    background-color: var(--jd-bg);
-    color: var(--jd-text-main);
+    background-color: var(--bg-page);
+    color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow: hidden;
 }
@@ -30,23 +13,19 @@
 /* LEFT SIDEBAR (LIBRARY) */
 .jd-sidebar {
     width: 280px;
-    background-color: #0f1219;
-    /* Deep dark bg */
-    border-right: 1px solid #334155;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
     padding: 24px;
     flex-shrink: 0;
     overflow-y: auto;
-    /* Enable scrolling */
     height: 100vh;
     scrollbar-width: none;
-    /* Firefox */
 }
 
 .jd-sidebar::-webkit-scrollbar {
     display: none;
-    /* Chrome, Safari */
 }
 
 .jd-sidebar-header {
@@ -60,7 +39,7 @@
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 32px;
-    color: white;
+    color: var(--text-main);
 }
 
 .nav-item {
@@ -69,27 +48,30 @@
     gap: 12px;
     padding: 10px 12px;
     border-radius: 8px;
-    color: #94a3b8;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s;
+    border: 1px solid transparent;
 }
 
 .nav-item:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    background: var(--bg-hover);
 }
 
 .nav-item.active {
-    background: rgba(99, 102, 241, 0.15) !important;
-    color: #a5b4fc !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
 }
 
 .library-title {
     font-size: 11px;
     text-transform: uppercase;
-    color: #64748b;
+    color: var(--text-muted);
     font-weight: 700;
     margin-bottom: 16px;
     letter-spacing: 0.5px;
@@ -103,16 +85,15 @@
 }
 
 .lib-accordion {
-    background-color: #1e293b;
-    /* Card BG */
-    border: 1px solid #334155;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     overflow: hidden;
     transition: border-color 0.2s;
 }
 
 .lib-accordion:hover {
-    border-color: #475569;
+    border-color: var(--border-focus);
 }
 
 .lib-header {
@@ -123,12 +104,12 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    color: #f8fafc;
+    color: var(--text-main);
     background: transparent;
 }
 
 .lib-header:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--bg-hover);
 }
 
 .lib-content {
@@ -140,11 +121,11 @@
 
 .lib-item {
     padding: 10px 12px;
-    background: rgba(15, 23, 42, 0.4);
-    /* Darker inset */
+    background: var(--bg-page);
+    /* Inset feel */
     border-radius: 8px;
     font-size: 13px;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     cursor: grab;
     display: flex;
     align-items: center;
@@ -154,29 +135,25 @@
 }
 
 .lib-item:hover {
-    background: #334155;
-    color: white;
-    border-color: #475569;
+    background: var(--bg-active);
+    color: var(--text-main);
+    border-color: var(--border-subtle);
 }
 
 /* MAIN CONTENT */
 .jd-main {
     flex: 1;
     padding: 32px 40px;
-    /* More padding */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
 
-/* 🟢 REVIEW MODE OVERRIDE */
 .jd-main.review-mode {
     display: flex;
     flex-direction: column;
     padding: 60px 40px;
-    /* Generous padding all around */
     overflow-y: auto;
-    /* Allow scroll if content is taller than screen */
 }
 
 /* HEADER */
@@ -186,7 +163,7 @@
 
 .breadcrumbs {
     font-size: 13px;
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     margin-bottom: 8px;
 }
 
@@ -201,17 +178,17 @@
     font-weight: 700;
     margin-bottom: 6px;
     letter-spacing: -0.5px;
+    color: var(--text-main);
 }
 
 .jd-subtitle {
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     font-size: 14px;
 }
 
 .step-tracker {
-    background: #0f1219;
-    /* Very dark for contrast */
-    border: 1px solid var(--jd-border);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     padding: 10px 16px;
     border-radius: 12px;
     display: flex;
@@ -222,7 +199,7 @@
 
 .step-info {
     font-size: 10px;
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 6px;
@@ -231,6 +208,7 @@
 
 .step-percent {
     background: #312e81;
+    /* Keep branded or use var */
     color: #818cf8;
     font-size: 12px;
     padding: 4px 8px;
@@ -239,51 +217,39 @@
 }
 
 /* GRID LAYOUT */
-/* GRID LAYOUT */
 .jd-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    /* Allow auto height */
     gap: 24px;
     flex: 1;
-    /* Allow growing */
     min-height: min-content;
-    /* Ensure it doesn't collapse */
     margin-bottom: 24px;
 }
 
 /* CARDS COMMON STYLES */
 .jd-card {
-    background: var(--jd-card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtle border */
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    /* Ensure content inside doesn't overflow card bounds without scroll logic if needed, but usually we want card to grow */
+    box-shadow: var(--shadow-sm);
     min-height: 250px;
 }
 
-/* ... */
 /* FOOTER */
 .jd-footer {
-    /* grid-column: span 2; Removed as it is outside grid */
     display: flex;
     justify-content: flex-end;
     gap: 16px;
     margin-top: 32px;
-    /* Explicit spacing */
     padding-top: 20px;
     padding-bottom: 20px;
-    /* Ensure visible padding at bottom */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    /* Optional separator */
+    border-top: 1px solid var(--border-subtle);
     flex-shrink: 0;
-    /* Prevent shrinking */
 }
 
 .card-header {
@@ -299,13 +265,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    color: var(--text-main);
 }
 
 .card-icon {
     width: 32px;
     height: 32px;
     background: rgba(59, 130, 246, 0.1);
-    color: #60a5fa;
+    color: #3b82f6;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -314,20 +281,17 @@
 
 .card-subtitle {
     font-size: 13px;
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     margin-top: -12px;
-    /* Pull up closer to header */
     margin-bottom: 20px;
 }
 
-/* 1. DRAG DROP ZONE */
+/* DRAG DROP ZONE */
 .drop-zone {
     flex: 1;
-    border: 2px dashed #6366f1;
-    /* Purple dashed */
+    border: 2px dashed var(--primary);
     border-radius: 12px;
     background: rgba(99, 102, 241, 0.03);
-    /* Faint purple bg */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -344,10 +308,9 @@
     flex-wrap: wrap;
     gap: 10px;
     z-index: 2;
-    /* Above center text */
 }
 
-/* Floating Tags (Blue/Purple Pills) */
+/* Floating Tags (Keep colored) */
 .floating-tag {
     font-size: 12px;
     font-weight: 500;
@@ -409,36 +372,35 @@
     flex-direction: column;
     align-items: center;
     pointer-events: none;
-    /* Let drops pass through */
 }
 
 .plus-circle {
     width: 40px;
     height: 40px;
-    background: #6366f1;
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
-    alignItems: center;
-    justifyContent: center;
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-glow);
     margin-bottom: 12px;
 }
 
 .drop-label {
     font-size: 14px;
-    color: white;
+    color: var(--text-main);
     font-weight: 500;
 }
 
 .drop-subtext {
     font-size: 12px;
-    color: #818cf8;
+    color: var(--primary);
     margin-top: 4px;
 }
 
-/* 2. PASTE DESCRIPTION */
+/* PASTE DESCRIPTION */
 .toggle-switch {
-    background: #0f1219;
+    background: var(--bg-page);
     padding: 3px;
     border-radius: 6px;
     display: flex;
@@ -448,23 +410,23 @@
     font-size: 11px;
     padding: 4px 12px;
     border-radius: 4px;
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     cursor: pointer;
 }
 
 .toggle-option.active {
-    background: #334155;
-    color: white;
+    background: var(--bg-active);
+    color: var(--text-main);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .text-editor {
     flex: 1;
-    background: #0f1219;
-    /* Very dark editor bg */
-    border: 1px solid var(--jd-border);
+    background: var(--bg-page);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 16px;
-    color: var(--jd-text-muted);
+    color: var(--text-main);
     font-family: 'Inter', sans-serif;
     font-size: 13px;
     resize: none;
@@ -473,7 +435,7 @@
 }
 
 .text-editor:focus {
-    border-color: #6366f1;
+    border-color: var(--primary);
 }
 
 .auto-tags-section {
@@ -482,7 +444,7 @@
 
 .auto-label {
     font-size: 10px;
-    color: var(--jd-text-muted);
+    color: var(--text-muted);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -491,7 +453,6 @@
 .auto-tags {
     display: flex;
     flex-wrap: wrap;
-    /* Allow wrapping for longer grouped tags */
     gap: 8px;
     align-items: center;
 }
@@ -534,75 +495,15 @@
 }
 
 .tag-pill.dashed {
-    color: #94a3b8;
-    border: 1px dashed #475569;
+    color: var(--text-muted);
+    border: 1px dashed var(--text-secondary);
     cursor: pointer;
 }
 
-/* Color mappings:
-   Role -> Violet
-   Skills -> Blue
-   Location -> Green
-   Experience -> Orange
-   Education -> Purple
-*/
-
-/* Rectangular Tag Groups */
-.tag-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    /* Slightly rounded rectangle */
-    border: 1px solid transparent;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.group-label {
-    opacity: 0.7;
-    margin-right: 2px;
-}
-
-.group-value {
-    color: inherit;
-}
-
-.tag-group.violet {
-    background: rgba(139, 92, 246, 0.15);
-    border-color: rgba(139, 92, 246, 0.3);
-    color: #a78bfa;
-}
-
-.tag-group.blue {
-    background: rgba(37, 99, 235, 0.15);
-    border-color: rgba(37, 99, 235, 0.3);
-    color: #60a5fa;
-}
-
-.tag-group.green {
-    background: rgba(22, 163, 74, 0.15);
-    border-color: rgba(22, 163, 74, 0.3);
-    color: #4ade80;
-}
-
-.tag-group.orange {
-    background: rgba(234, 88, 12, 0.15);
-    border-color: rgba(234, 88, 12, 0.3);
-    color: #fb923c;
-}
-
-.tag-group.purple {
-    background: rgba(147, 51, 234, 0.15);
-    border-color: rgba(147, 51, 234, 0.3);
-    color: #d8b4fe;
-}
-
-/* 3. ATS SCORE */
+/* ATS SCORE */
 .min-pill {
     font-size: 12px;
-    color: #818cf8;
+    color: var(--primary);
     background: rgba(99, 102, 241, 0.1);
     padding: 6px 12px;
     border-radius: 6px;
@@ -629,7 +530,7 @@
 
 .bar {
     width: 40px;
-    background: #334155;
+    background: var(--bg-active);
     border-radius: 6px 6px 0 0;
     transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
     position: relative;
@@ -637,7 +538,6 @@
 
 .bar.active {
     background: linear-gradient(to top, #6366f1, #a855f7);
-    /* Gradient bars */
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
 }
 
@@ -646,8 +546,8 @@
     top: -28px;
     left: 50%;
     transform: translateX(-50%);
-    background: white;
-    color: black;
+    background: var(--bg-card);
+    color: var(--text-main);
     font-size: 10px;
     font-weight: 700;
     padding: 2px 6px;
@@ -664,16 +564,10 @@
     transform: translateX(-50%);
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid white;
+    border-top: 4px solid var(--bg-card);
 }
 
-.slider-container input {
-    width: 100%;
-    accent-color: #6366f1;
-    cursor: pointer;
-}
-
-/* 4. EXPERIENCE RANGE */
+/* EXPERIENCE RANGE */
 .exp-visual-container {
     flex: 1;
     display: flex;
@@ -693,14 +587,14 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #334155;
+    background: var(--border-subtle);
     border-radius: 3px;
 }
 
 .track-fill {
     position: absolute;
     height: 100%;
-    background: #818cf8;
+    background: var(--primary);
     border-radius: 3px;
 }
 
@@ -722,7 +616,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background: #6366f1;
+    background: var(--primary);
     color: white;
     font-size: 11px;
     padding: 4px 10px;
@@ -738,7 +632,7 @@
     transform: translateX(-50%);
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid #6366f1;
+    border-top: 4px solid var(--primary);
 }
 
 .quick-select-zones {
@@ -758,8 +652,8 @@
 
 .btn-outline {
     background: transparent;
-    border: 1px solid #475569;
-    color: white;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 500;
@@ -768,19 +662,19 @@
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: white;
+    background: var(--bg-hover);
+    border-color: var(--text-main);
 }
 
 .btn-primary {
-    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    background: var(--primary);
     color: white;
     border: none;
     padding: 12px 32px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    box-shadow: var(--shadow-glow);
     transition: transform 0.2s;
 }
 
@@ -788,7 +682,6 @@
     transform: translateY(-1px);
 }
 
-/* ANIMATIONS */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -801,12 +694,97 @@
     }
 }
 
-@keyframes popIn {
-    from {
-        transform: translateX(-50%) scale(0.5);
-    }
+/* ========================================
+   DARK MODE ONLY - Job Description Specific
+   ======================================== */
 
-    to {
-        transform: translateX(-50%) scale(1);
-    }
+[data-theme='dark'] .jd-logo {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+[data-theme='dark'] .jd-title h1 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+[data-theme='dark'] .lib-header {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+/* Dark Mode: Enhanced Sidebar Navigation States */
+[data-theme='dark'] .nav-item {
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .nav-item:hover {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .nav-item:hover .material-icons {
+    color: #0F172A !important;
+}
+
+[data-theme='dark'] .nav-item.active {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] .nav-item.active .material-icons {
+    color: #0F172A !important;
+}
+
+/* ========================================
+   DARK MODE - Section-Specific Library Item Hover Effects
+   ======================================== */
+
+/* Job Roles Section - Violet Hover (#a78bfa) */
+[data-theme='dark'] .lib-accordion:nth-child(1) .lib-item:hover {
+    background: rgba(167, 139, 250, 0.15) !important;
+    border: 1px solid rgba(167, 139, 250, 0.4) !important;
+    color: #e9d5ff !important;
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Skills Section - Blue Hover (#60a5fa) */
+[data-theme='dark'] .lib-accordion:nth-child(2) .lib-item:hover {
+    background: rgba(96, 165, 250, 0.15) !important;
+    border: 1px solid rgba(96, 165, 250, 0.4) !important;
+    color: #dbeafe !important;
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Education Section - Pink Hover (#f472b6) */
+[data-theme='dark'] .lib-accordion:nth-child(3) .lib-item:hover {
+    background: rgba(244, 114, 182, 0.15) !important;
+    border: 1px solid rgba(244, 114, 182, 0.4) !important;
+    color: #fce7f3 !important;
+    box-shadow: 0 0 12px rgba(244, 114, 182, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Location Section - Green Hover (#4ade80) */
+[data-theme='dark'] .lib-accordion:nth-child(4) .lib-item:hover {
+    background: rgba(74, 222, 128, 0.15) !important;
+    border: 1px solid rgba(74, 222, 128, 0.4) !important;
+    color: #dcfce7 !important;
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Fix text visibility in Paste Description textarea */
+[data-theme='dark'] .text-editor {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .text-editor::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
 }

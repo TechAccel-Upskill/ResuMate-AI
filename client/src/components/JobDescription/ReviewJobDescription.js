@@ -144,15 +144,12 @@ const ReviewJobDescription = ({ data, onEdit, onSave }) => {
                             <span className="material-icons">save</span>
                             Save Description
                         </button>
+
+                        <button className="btn-back-new" onClick={onEdit} style={{ marginTop: '12px' }}>
+                            <span className="material-icons">arrow_back</span> Back to Edit
+                        </button>
                     </div>
                 </div>
-            </div>
-
-            {/* Back to Edit - Outside the card */}
-            <div className="review-external-footer-new">
-                <button className="btn-back-new" onClick={onEdit}>
-                    <span className="material-icons">arrow_back</span> Back to Edit
-                </button>
             </div>
 
             <div className="security-note-new">

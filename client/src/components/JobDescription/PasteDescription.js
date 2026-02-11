@@ -10,7 +10,22 @@ const PasteDescription = ({ rawJD, setRawJD, onTagsGenerated }) => {
         education: []
     });
 
+    const [isLoading, setIsLoading] = React.useState(false);
+
     const handleGenerateTags = (currentText) => {
+        if (!currentText || !currentText.trim()) return;
+
+        // Start loading
+        setIsLoading(true);
+
+        // Simulate 3 seconds delay
+        setTimeout(() => {
+            generateTagsLogic(currentText);
+            setIsLoading(false);
+        }, 2000);
+    };
+
+    const generateTagsLogic = (currentText) => {
         // Create fresh empty state
         const newTags = {
             role: [],
@@ -19,12 +34,6 @@ const PasteDescription = ({ rawJD, setRawJD, onTagsGenerated }) => {
             experience: [],
             education: []
         };
-
-        // Use the passed text to avoid closure staleness
-        if (!currentText || !currentText.trim()) {
-            setTags(newTags);
-            return;
-        }
 
         const text = currentText.toLowerCase();
 
@@ -131,20 +140,30 @@ const PasteDescription = ({ rawJD, setRawJD, onTagsGenerated }) => {
                 <button
                     className="generate-btn"
                     onClick={() => handleGenerateTags(rawJD)}
-                    disabled={!rawJD.trim()}
+                    disabled={!rawJD.trim() || isLoading}
                     style={{
-                        background: !rawJD.trim() ? '#334155' : '#818cf8',
-                        color: !rawJD.trim() ? '#94a3b8' : 'white',
+                        background: !rawJD.trim() || isLoading ? '#334155' : '#818cf8',
+                        color: !rawJD.trim() || isLoading ? '#94a3b8' : 'white',
                         border: 'none',
                         padding: '6px 12px',
                         borderRadius: '6px',
                         fontSize: '12px',
-                        cursor: !rawJD.trim() ? 'not-allowed' : 'pointer',
+                        cursor: !rawJD.trim() || isLoading ? 'not-allowed' : 'pointer',
                         fontWeight: 600,
-                        transition: 'background 0.2s'
+                        transition: 'background 0.2s',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
                     }}
                 >
-                    Generate Tags
+                    {isLoading ? (
+                        <>
+                            <span className="spinner"></span>
+                            Generating...
+                        </>
+                    ) : (
+                        "Generate Tags"
+                    )}
                 </button>
             </div>
 

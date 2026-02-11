@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthProvider';
 import { useNavigate, Link } from 'react-router-dom';
 import './Dashboard.css';
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
-import BrandingFooter from '../components/BrandingFooter';
+import ThemeToggle from '../components/ThemeToggle';
 
 function Dashboard() {
   const { user, signOut } = useAuth();
@@ -51,8 +51,6 @@ function Dashboard() {
 
         {/* RECRUITER CARD */}
         <RecruiterProfileCard />
-
-        <BrandingFooter />
       </aside>
 
       {/* MAIN CONTENT */}
@@ -68,19 +66,17 @@ function Dashboard() {
               <div className="ai-status-dot"></div>
               AI Online
             </div>
-            <button style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer' }}>
+            <ThemeToggle />
+            <button style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>
               <span className="material-icons">notifications</span>
             </button>
-            <div className="profile-avatar" style={{ background: '#5b5fc7', color: 'white' }}>
-              <span>A</span>
-            </div>
           </div>
         </header>
 
         {/* HERO SECTION */}
         <section className="hero-card">
           <div className="hero-content">
-            <h1 className="hero-title">Welcome to ResuMate AI 👋</h1>
+            <h1 className="hero-title">Welcome to ResuMate AI, {user?.email ? user.email.split('@')[0] : 'thumumanas'} 👋</h1>
             <p className="hero-desc">
               Scan. Match. Decide — Faster hiring powered by AI. Your intelligent assistant is ready to process new applications.
             </p>
@@ -88,12 +84,12 @@ function Dashboard() {
             <div className="progress-card">
               <div className="progress-header">
                 <span>Setup Progress</span>
-                <span style={{ color: '#64748b' }}>—</span>
+                <span style={{ color: 'var(--text-muted)' }}>—</span>
               </div>
               <div className="progress-bar">
                 <div className="progress-fill" style={{ width: '0%' }}></div>
               </div>
-              <div style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '8px' }}>
                 Awaiting backend integration
               </div>
             </div>
@@ -103,7 +99,7 @@ function Dashboard() {
                 <span className="material-icons">add_circle</span>
                 Start New Scan
               </button>
-              <button className="start-btn" style={{ background: '#1e293b', border: '1px solid #334155' }}>
+              <button className="start-btn className=btn-secondary" style={{ background: 'var(--button-secondary-bg)', border: '1px solid var(--button-secondary-border)', color: 'var(--button-secondary-text)' }}>
                 <span className="material-icons">play_circle</span>
                 Watch Tutorial
               </button>
@@ -118,16 +114,16 @@ function Dashboard() {
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#fbbf24' }}></div>
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#34d399' }}></div>
               </div>
-              <div style={{ width: '60%', height: '8px', background: '#334155', borderRadius: '4px', marginBottom: '12px' }}></div>
-              <div style={{ width: '100%', height: '8px', background: '#1e293b', borderRadius: '4px', marginBottom: '8px' }}></div>
-              <div style={{ width: '90%', height: '8px', background: '#1e293b', borderRadius: '4px', marginBottom: '8px' }}></div>
-              <div style={{ width: '70%', height: '8px', background: '#1e293b', borderRadius: '4px' }}></div>
+              <div style={{ width: '60%', height: '8px', background: 'var(--border-subtle)', borderRadius: '4px', marginBottom: '12px' }}></div>
+              <div style={{ width: '100%', height: '8px', background: 'var(--bg-active)', borderRadius: '4px', marginBottom: '8px' }}></div>
+              <div style={{ width: '90%', height: '8px', background: 'var(--bg-active)', borderRadius: '4px', marginBottom: '8px' }}></div>
+              <div style={{ width: '70%', height: '8px', background: 'var(--bg-active)', borderRadius: '4px' }}></div>
 
               <div className="glow-icon">
                 <span className="material-icons" style={{ color: 'white' }}>auto_awesome</span>
               </div>
 
-              <div style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(16, 185, 129, 0.1)', color: '#34d399', padding: '4px 8px', borderRadius: '6px', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{ position: 'absolute', right: '20px', top: '20px', background: 'rgba(16, 185, 129, 0.1)', color: 'var(--success)', padding: '4px 8px', borderRadius: '6px', fontSize: '10px', display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <span className="material-icons" style={{ fontSize: '12px' }}>check_circle</span>
                 Match 98%
               </div>
@@ -147,7 +143,7 @@ function Dashboard() {
               </div>
             </div>
             <div className="stat-value-group">
-              <span className="stat-value" style={{ color: '#64748b' }}>—</span>
+              <span className="stat-value" style={{ color: 'var(--text-muted)' }}>—</span>
             </div>
           </div>
 
@@ -161,7 +157,7 @@ function Dashboard() {
               </div>
             </div>
             <div className="stat-value-group">
-              <span className="stat-value" style={{ color: '#64748b' }}>—</span>
+              <span className="stat-value" style={{ color: 'var(--text-muted)' }}>—</span>
             </div>
           </div>
 
@@ -175,7 +171,7 @@ function Dashboard() {
               </div>
             </div>
             <div className="stat-value-group">
-              <span className="stat-value" style={{ color: '#64748b' }}>—</span>
+              <span className="stat-value" style={{ color: 'var(--text-muted)' }}>—</span>
             </div>
           </div>
         </section>
@@ -184,10 +180,10 @@ function Dashboard() {
         <section className="table-section">
           <div className="table-header">
             <div className="table-title">
-              <span className="material-icons" style={{ color: '#94a3b8' }}>history</span>
+              <span className="material-icons" style={{ color: 'var(--text-muted)' }}>history</span>
               Recent Scans
             </div>
-            <a href="#" style={{ color: '#818cf8', fontSize: '13px', textDecoration: 'none', fontWeight: '500' }}>View All →</a>
+            <a href="#" style={{ color: 'var(--primary)', fontSize: '13px', textDecoration: 'none', fontWeight: '500' }}>View All →</a>
           </div>
           <div className="table-container">
             <table className="custom-table">
@@ -202,9 +198,9 @@ function Dashboard() {
               </thead>
               <tbody>
                 <tr>
-                  <td colSpan="5" style={{ textAlign: 'center', padding: '48px 24px', color: '#64748b' }}>
+                  <td colSpan="5" style={{ textAlign: 'center', padding: '48px 24px', color: 'var(--text-muted)' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-                      <span className="material-icons" style={{ fontSize: '48px', color: '#334155' }}>inbox</span>
+                      <span className="material-icons" style={{ fontSize: '48px', color: 'var(--border-focus)' }}>inbox</span>
                       <div>
                         <div style={{ fontSize: '14px', fontWeight: 500, marginBottom: '4px' }}>No scans yet</div>
                         <div style={{ fontSize: '12px' }}>Data will appear once backend integration is complete.</div>

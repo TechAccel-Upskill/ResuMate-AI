@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthProvider';
 import './Reports.css';
 import '../pages/Dashboard.css'; // Reusing some common tokens
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
-import BrandingFooter from '../components/BrandingFooter';
+import ThemeToggle from '../components/ThemeToggle';
 
 const Reports = () => {
     const { user, signOut } = useAuth();
@@ -137,13 +137,8 @@ const Reports = () => {
                 </nav>
 
 
-
                 {/* RECRUITER CARD */}
                 <RecruiterProfileCard />
-
-
-
-                <BrandingFooter />
             </aside>
 
             {/* MAIN CONTENT */}
@@ -155,11 +150,7 @@ const Reports = () => {
                         <input type="text" placeholder="Search candidates..." />
                     </div>
                     <div className="header-right">
-                        <div className="badge-pill">
-                            <div className="dot"></div> AI Online
-                        </div>
-                        <span className="material-icons notif">notifications_none</span>
-                        <div className="user-c">AI</div>
+                        <ThemeToggle />
                     </div>
                 </div>
 
