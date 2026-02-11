@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
       mounted = false;
       subscription?.unsubscribe();
     };
-  }, []);
+  }, [user, navigate, location.pathname]);
 
   const handleSession = async (session) => {
     if (!session) {
