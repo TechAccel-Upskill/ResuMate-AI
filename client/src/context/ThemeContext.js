@@ -32,6 +32,14 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         // Update data-theme attribute
         document.documentElement.setAttribute('data-theme', theme);
+
+        // Sync with Tailwind dark mode class
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
         localStorage.setItem('app-theme', theme);
     }, [theme]);
 

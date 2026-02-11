@@ -96,16 +96,16 @@ function HomePage() {
                   <span className="material-icons text-[14px]">bolt</span>
                 </span>
                 <span className="text-xs font-semibold text-primary dark:text-teal-400 uppercase tracking-wide">New Feature</span>
-                <span className="text-sm text-slate-600 dark:text-slate-300">Auto-Interview Scheduling</span>
+                <span className="text-sm text-slate-800 dark:text-slate-300 font-medium">Auto-Interview Scheduling</span>
               </div>
 
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.15]">
                   AI-Powered <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-400">Resume Screening.</span> <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-500">Resume Screening.</span> <br />
                   Move Smarter, Not Slower.
                 </h1>
-                <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                <p className="text-lg sm:text-xl text-slate-900 dark:text-slate-400 max-w-2xl leading-relaxed font-medium">
                   An AI-powered resume analyzer built for modern hiring. It instantly scans resumes, matches them with job descriptions, and delivers clear ATS scores, skill insights, and hiring decisions—fast, fair, and data-driven.
                 </p>
               </div>
@@ -115,19 +115,19 @@ function HomePage() {
                   <div className="flex-shrink-0 mt-0.5">
                     <span className="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
                   </div>
-                  <span className="text-base text-slate-700 dark:text-slate-300 font-medium">Upload resumes &amp; job descriptions in bulk</span>
+                  <span className="text-base text-slate-900 dark:text-slate-300 font-semibold">Upload resumes &amp; job descriptions in bulk</span>
                 </li>
                 <li className="flex items-start gap-3 group">
                   <div className="flex-shrink-0 mt-0.5">
                     <span className="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
                   </div>
-                  <span className="text-base text-slate-700 dark:text-slate-300 font-medium">Instant ATS score &amp; skills gap analysis</span>
+                  <span className="text-base text-slate-900 dark:text-slate-300 font-semibold">Instant ATS score &amp; skills gap analysis</span>
                 </li>
                 <li className="flex items-start gap-3 group">
                   <div className="flex-shrink-0 mt-0.5">
                     <span className="material-icons text-primary group-hover:scale-110 transition-transform">check_circle</span>
                   </div>
-                  <span className="text-base text-slate-700 dark:text-slate-300 font-medium">Make data-driven hiring decisions 10x faster</span>
+                  <span className="text-base text-slate-900 dark:text-slate-300 font-semibold">Make data-driven hiring decisions 10x faster</span>
                 </li>
               </ul>
 
@@ -139,7 +139,7 @@ function HomePage() {
               </div>
 
               <div className="pt-8 w-full border-t border-slate-200 dark:border-slate-800">
-                <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Trusted by HR teams at</p>
+                <p className="text-xs font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest mb-4">Trusted by HR teams at</p>
                 <div className="flex flex-wrap gap-8 items-center opacity-60 dark:opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
                   <div className="h-6 w-24 bg-slate-800 dark:bg-white mask-logo rounded" />
                   <div className="h-5 w-20 bg-slate-800 dark:bg-white mask-logo rounded opacity-80" />
