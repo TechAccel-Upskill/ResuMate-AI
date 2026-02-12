@@ -32,9 +32,9 @@ Have questions? Check our live FAQs:
 
 **Quick Start:** Deploy to Vercel in minutes!
 
-1. Import repo from GitHub
-2. Set root directory to `client`
-3. Deploy (auto-configures build settings)
+1. Import this repository from GitHub
+2. Keep the Vercel **Root Directory** as the repository root (do **not** change it to `client`)
+3. Deploy – Vercel will use the root `vercel.json` to install and build the React app in `client/` automatically
 
 **📖 For detailed instructions, troubleshooting, and OAuth setup, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)**
 
