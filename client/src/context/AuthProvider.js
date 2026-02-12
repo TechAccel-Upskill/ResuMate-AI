@@ -15,10 +15,6 @@ export function AuthProvider({ children }) {
   const [authMessage, setAuthMessage] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const siteUrl =
-    process.env.REACT_APP_SITE_URL ||
-    process.env.REACT_APP_SUPABASE_REDIRECT_URL ||
-    window.location.origin;
 
   useEffect(() => {
     let mounted = true;

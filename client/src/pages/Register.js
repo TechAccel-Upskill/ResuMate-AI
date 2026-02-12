@@ -7,7 +7,9 @@ export default function Register({ goToLogin, handleOAuth }) {
   const [password, setPassword] = useState("");
   // eslint-disable-next-line no-unused-vars
   const { signUp } = useAuth();
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [message, setMessage] = useState("");
 
   return (
