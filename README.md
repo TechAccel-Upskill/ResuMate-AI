@@ -28,25 +28,16 @@ ResuMate is an AI-powered recruitment assistant that speeds up candidate screeni
 Have questions? Check our live FAQs:
 🔗 https://github.com/TechAccel-Upskill/ResuMate-AI/discussions/categories/q-a 
 
-## Deployment (Vercel)
+## 🚀 Deployment
 
-### Quick Deploy Steps
+**Quick Start:** Deploy to Vercel in minutes!
 
-1. Import the repo in Vercel
-2. Set **Root Directory** to `client`
-3. Use build command `npm run build` and output `build` (defaults for Create React App)
-4. **Set Environment Variables** (Optional - already configured in code):
-   ```
-   REACT_APP_SUPABASE_URL=https://eecxsxlkbdaaawbhfnxh.supabase.co
-   REACT_APP_SUPABASE_ANON_KEY=sb_publishable_B0SICeYzqU81Q-frlkKG2w_A3QH7-z6
-   REACT_APP_SITE_URL=https://your-deployment-url.vercel.app
-   ```
-5. Deploy
+1. Import repo from GitHub
+2. Set root directory to `client`
+3. Deploy (auto-configures build settings)
+
+**📖 For detailed instructions, troubleshooting, and OAuth setup, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)**
+
 ### ✨ Automatic PR Previews
 
-Vercel automatically creates preview deployments for every Pull Request:
-- Each PR gets a unique preview URL
-- Automatically updates on new commits
-- Perfect for testing changes before merging
-- Preview URLs are shared in PR comments by Vercel bot
-**📖 For detailed deployment instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)**
+Every Pull Request gets a unique preview URL for testing before merging.
