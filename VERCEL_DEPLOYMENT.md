@@ -108,5 +108,4 @@ https://*.vercel.app/**
 - `REACT_APP_SITE_URL` - Deployed app URL (required for OAuth)
 
 **Demo Credentials:**
-- Username: `recruiter@techaccel`
-- Password: `interns@techaccel`
+Refer to the **Demo Credentials** section in `README.md` for the current demo login details.
