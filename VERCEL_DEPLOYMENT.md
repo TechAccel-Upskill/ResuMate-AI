@@ -28,23 +28,14 @@
    - Wait for the build to complete
    - Your app will be live!
 
-5. **Verify PR Deployment Settings** (Important!)
+5. **Enable PR Deployments**
    
-   Go to **Project Settings → Git** and ensure:
-   - ✅ **Production Branch:** `main` (or your default branch)
-   - ✅ **Deploy on Push:** Enabled
-   - ✅ **Ignore Build Step:** Not enabled (leave unchecked)
-   - ✅ **Preview Deployments:** All branches (default)
+   Go to **Project Settings → Git** and configure:
+   - **Production Branch:** `main`
+   - **Preview Deployments:** Select **"All branches"** (enables PR previews)
+   - **Ignored Build Step:** Leave empty (default)
    
-   This ensures every PR gets an automatic preview deployment.
-
-## Demo Access
-
-The application uses demo authentication:
-- **Username:** recruiter@techaccel
-- **Password:** interns@techaccel
-
-All other authentication methods (OAuth, registration) are disabled for demo purposes.
+   This ensures every Pull Request gets an automatic preview deployment.
 
 ## PR Preview Deployments
 
@@ -95,44 +86,26 @@ If you have preview deployments, add all preview URLs to Supabase Redirect URLs:
 https://*.vercel.app/**
 ```
 
-## Additional OAuth Providers
+## OAuth Configuration (Optional)
 
-### LinkedIn OAuth
-1. Go to [LinkedIn Developers](https://www.linkedin.com/developers/)
-2. Create an app
-3. Add redirect URL: `https://eecxsxlkbdaaawbhfnxh.supabase.co/auth/v1/callback`
-4. Copy Client ID and Secret to Supabase → Providers → LinkedIn
+### Additional Providers
 
-### GitHub OAuth
-1. Go to [GitHub Settings → Developer Settings → OAuth Apps](https://github.com/settings/developers)
-2. Create new OAuth App
-3. Authorization callback URL: `https://eecxsxlkbdaaawbhfnxh.supabase.co/auth/v1/callback`
-4. Copy Client ID and Secret to Supabase → Providers → GitHub
+**LinkedIn:**
+1. Create app at [LinkedIn Developers](https://www.linkedin.com/developers/)
+2. Redirect URL: `https://eecxsxlkbdaaawbhfnxh.supabase.co/auth/v1/callback`
+3. Add Client ID and Secret to Supabase → Providers → LinkedIn
 
-## Environment Variables Reference
+**GitHub:**
+1. Create OAuth App in [GitHub Settings → Developer Settings](https://github.com/settings/developers)
+2. Callback URL: `https://eecxsxlkbdaaawbhfnxh.supabase.co/auth/v1/callback`
+3. Add Client ID and Secret to Supabase → Providers → GitHub
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `REACT_APP_SUPABASE_URL` | Your Supabase project URL | Yes |
-| `REACT_APP_SUPABASE_ANON_KEY` | Your Supabase anonymous key | Yes |
-| `REACT_APP_SITE_URL` | Your deployed application URL | Yes (for OAuth) |
+## Quick Reference
 
-## Quick Checklist
+**Environment Variables:**
+- `REACT_APP_SUPABASE_URL` - Supabase project URL (required)
+- `REACT_APP_SUPABASE_ANON_KEY` - Supabase anon key (required)
+- `REACT_APP_SITE_URL` - Deployed app URL (required for OAuth)
 
-- [ ] Vercel project created with `client` as root directory
-- [ ] Environment variables set in Vercel
-- [ ] Initial deployment completed
-- [ ] Supabase Site URL updated with Vercel URL
-- [ ] Supabase Redirect URLs include Vercel URL with `/**`
-- [ ] Google OAuth credentials created in Google Cloud Console
-- [ ] Google OAuth configured in Supabase with Client ID and Secret
-- [ ] Vercel application redeployed after environment variable changes
-- [ ] OAuth login tested on production URL
-
-## Support
-
-If you continue to experience issues:
-1. Check Vercel deployment logs for errors
-2. Check browser console for client-side errors
-3. Verify all URLs match exactly (including https://)
-4. Ensure no trailing slashes in URLs where not specified
+**Demo Credentials:**
+Refer to the **Demo Credentials** section in `README.md` for the current demo login details.
