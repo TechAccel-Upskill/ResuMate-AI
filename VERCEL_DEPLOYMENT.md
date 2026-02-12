@@ -8,10 +8,12 @@
    - Import your GitHub repository: `TechAccel-Upskill/ResuMate-AI`
 
 2. **Configure Build Settings**
-   - **Root Directory**: `client`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `build`
-   - **Install Command**: `npm install`
+   - **Root Directory**: Leave as repository root (do **not** change to `client`)
+   - Vercel will automatically use the `vercel.json` configuration at the root
+   - The `vercel.json` file configures:
+     - Install command: `npm install --prefix client`
+     - Build command: `npm run build --prefix client`
+     - Output directory: `client/build`
 
 3. **Set Environment Variables** (Optional - already configured with fallbacks)
    
