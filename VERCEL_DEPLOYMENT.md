@@ -13,88 +13,28 @@
    - **Output Directory**: `build`
    - **Install Command**: `npm install`
 
-3. **Set Environment Variables** ⚠️ CRITICAL for OAuth Login
+3. **Set Environment Variables** (Optional - already configured with fallbacks)
    
    Go to **Project Settings → Environment Variables** and add:
    
    ```
    REACT_APP_SUPABASE_URL=https://eecxsxlkbdaaawbhfnxh.supabase.co
    REACT_APP_SUPABASE_ANON_KEY=sb_publishable_B0SICeYzqU81Q-frlkKG2w_A3QH7-z6
-   REACT_APP_SITE_URL=https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app
+   REACT_APP_SITE_URL=https://your-deployment-url.vercel.app
    ```
 
 4. **Deploy**
    - Click "Deploy"
    - Wait for the build to complete
-   - Note your deployment URL
+   - Your app will be live!
 
-## Post-Deployment: Configure Supabase OAuth
+## Demo Access
 
-### Step 1: Update Supabase URL Configuration
+The application uses demo authentication:
+- **Username:** recruiter@techaccel
+- **Password:** interns@techaccel
 
-1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
-2. Select your project
-3. Navigate to **Authentication → URL Configuration**
-4. Update the following fields:
-
-   **Site URL:**
-   ```
-   https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app
-   ```
-
-   **Redirect URLs:** (Add all of these)
-   ```
-   https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app/**
-   https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app/dashboard
-   http://localhost:3000/**
-   ```
-
-5. Click **Save**
-
-### Step 2: Configure Google OAuth Provider
-
-1. In Supabase Dashboard, go to **Authentication → Providers**
-2. Find **Google** and click **Enable**
-3. You'll need Google OAuth credentials:
-
-   **Get Google OAuth Credentials:**
-   - Go to [Google Cloud Console](https://console.cloud.google.com/)
-   - Create a new project or select existing one
-   - Navigate to **APIs & Services → Credentials**
-   - Click **Create Credentials → OAuth 2.0 Client ID**
-   - Application type: **Web application**
-   - Name: `ResuMate-AI`
-   - **Authorized JavaScript origins:**
-     ```
-     https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app
-     http://localhost:3000
-     ```
-   - **Authorized redirect URIs:**
-     ```
-     https://eecxsxlkbdaaawbhfnxh.supabase.co/auth/v1/callback
-     ```
-   - Click **Create**
-   - Copy the **Client ID** and **Client Secret**
-
-4. Back in Supabase Providers → Google:
-   - Paste **Client ID**
-   - Paste **Client Secret**
-   - Click **Save**
-
-### Step 3: Redeploy Vercel Application
-
-After setting the environment variables:
-1. Go to Vercel Dashboard → Your Project → Deployments
-2. Click the **...** menu on your latest deployment
-3. Click **Redeploy**
-4. Or push a new commit to trigger automatic redeployment
-
-## Testing OAuth Login
-
-1. Visit your deployed URL: `https://resu-mate-fhds27rfu-vinods-projects-ac4db69e.vercel.app/login`
-2. Click the Google login button
-3. You should be redirected to Google's OAuth consent screen
-4. After authorizing, you should be redirected back to `/dashboard`
+All other authentication methods (OAuth, registration) are disabled for demo purposes.
 
 ## Troubleshooting
 
