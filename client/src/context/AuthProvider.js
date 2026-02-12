@@ -15,6 +15,10 @@ export function AuthProvider({ children }) {
   const [authMessage, setAuthMessage] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const siteUrl =
+    process.env.REACT_APP_SITE_URL ||
+    process.env.REACT_APP_SUPABASE_REDIRECT_URL ||
+    window.location.origin;
 
   useEffect(() => {
     let mounted = true;
@@ -112,7 +116,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        emailRedirectTo: `${siteUrl}/dashboard`,
       },
     });
     return { data, error };
@@ -122,7 +126,7 @@ export function AuthProvider({ children }) {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/dashboard`,
+        redirectTo: `${siteUrl}/dashboard`,
       },
     });
     return { data, error };

@@ -28,3 +28,13 @@ To deploy the React app in `client`:
 2. Set **Root Directory** to `client`.
 3. Use build command `npm run build` and output `build` (defaults for CRA).
 4. Deploy.
+
+## Auth (Supabase OAuth)
+
+If Google login fails after deployment, ensure these are set:
+
+1. Supabase Dashboard -> Authentication -> URL Configuration
+	- Add your Vercel domain (e.g. https://your-app.vercel.app) to Site URL.
+	- Add https://your-app.vercel.app/** to Redirect URLs.
+2. Set a Vercel environment variable:
+	- REACT_APP_SITE_URL = https://your-app.vercel.app
