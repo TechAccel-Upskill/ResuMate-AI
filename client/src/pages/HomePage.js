@@ -62,7 +62,7 @@ function HomePage() {
             <div className="hidden md:flex items-center space-x-4">
               <ThemeToggle />
               <Link className="text-sm font-semibold text-slate-900 dark:text-white hover:text-primary transition-colors" to="/login">Sign In</Link>
-              <Link className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40" to="/register">Get Started</Link>
+              <button disabled style={{ opacity: 0.4, cursor: 'not-allowed' }} className="bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg">Get Started</button>
             </div>
             <div className="md:hidden flex items-center gap-4">
               <ThemeToggle />

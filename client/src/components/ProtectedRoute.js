@@ -14,7 +14,10 @@ export default function ProtectedRoute({ children }) {
     );
   }
 
-  if (!user) {
+  // Check for user or mock session
+  const hasMockSession = localStorage.getItem('supabase.auth.token');
+  
+  if (!user && !hasMockSession) {
     return <Navigate to="/login" state={{ from: location, message: "Please log in to access this page." }} replace />;
   }
 

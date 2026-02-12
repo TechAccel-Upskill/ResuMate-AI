@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 
 export default function Login({ goToRegister, handleOAuth }) {
@@ -9,26 +9,46 @@ export default function Login({ goToRegister, handleOAuth }) {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
         setLoading(true);
 
-        const { error: signInError, message } = await signIn({ email, password });
+        const { error: signInError, message, data } = await signIn({ email, password });
 
         setLoading(false);
         if (signInError) {
             setError(message ?? signInError.message);
             return;
         }
-        // Navigation handled by AuthProvider
+        
+        // Navigate to dashboard on successful login
+        if (data) {
+            // Small delay to ensure state updates complete
+            setTimeout(() => {
+                navigate('/dashboard', { replace: true });
+            }, 100);
+        }
     };
 
     return (
         <div className="login-card">
             <h1 className="title">Welcome Back 👋</h1>
             <p className="subtitle">Sign in to access your dashboard</p>
+
+            {/* Demo Credentials Info */}
+            <div className="auth-alert" style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', border: '1px solid #059669', marginBottom: '1rem' }}>
+                <svg className="alert-icon" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'white' }}>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
+                <div style={{ color: 'white' }}>
+                    <div style={{ fontWeight: '700', marginBottom: '4px' }}>Demo Access</div>
+                    <div style={{ fontSize: '13px' }}><strong>USER NAME :</strong> recruiter@techaccel</div>
+                    <div style={{ fontSize: '13px' }}><strong>PASSWORD :</strong> interns@techaccel</div>
+                </div>
+            </div>
 
             {(authMessage || location.state?.message || error) && (
                 <div className="auth-alert">
@@ -61,7 +81,6 @@ export default function Login({ goToRegister, handleOAuth }) {
             <div className="field">
                 <div className="field-header">
                     <label>PASSWORD</label>
-                    <span className="forgot-link">Forgot Password?</span>
                 </div>
                 <div className="input-container">
                     <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -92,21 +111,21 @@ export default function Login({ goToRegister, handleOAuth }) {
 
             <div className="divider">OR</div>
 
-            <div className="social-row">
-                <button className="social-box" type="button" onClick={() => handleOAuth("google")}>
+            <div className="social-row" style={{ opacity: 0.4, pointerEvents: 'none' }}>
+                <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
                 </button>
-                <button className="social-box" type="button" onClick={() => handleOAuth("linkedin_oidc")}>
+                <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
                     <img src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn" />
                 </button>
-                <button className="social-box" type="button" onClick={() => handleOAuth("github")}>
+                <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
                     <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" />
                 </button>
             </div>
 
-            <p className="switch">
+            <p className="switch" style={{ opacity: 0.4, pointerEvents: 'none', cursor: 'not-allowed' }}>
                 Don't have an account?{" "}
-                <span onClick={goToRegister}>
+                <span>
                     Sign up for free
                 </span>
             </p>

@@ -30,6 +30,13 @@ export default function Register({ goToLogin, handleOAuth }) {
       <h1 className="title">Create Account ✨</h1>
       <p className="subtitle">Join ResuMate AI today</p>
 
+      <div className="auth-alert" style={{ marginBottom: '1rem' }}>
+        <svg className="alert-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+        </svg>
+        <span>Registration is currently disabled. Please contact administrator.</span>
+      </div>
+
       {message && <div className="msg success">{message}</div>}
       {error && (
         <div className="auth-alert">
@@ -40,7 +47,7 @@ export default function Register({ goToLogin, handleOAuth }) {
         </div>
       )}
 
-      <div className="field">
+      <div className="field" style={{ opacity: 0.4 }}>
         <div className="field-header">
           <label>EMAIL ADDRESS</label>
         </div>
@@ -54,12 +61,13 @@ export default function Register({ goToLogin, handleOAuth }) {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled
             required
           />
         </div>
       </div>
 
-      <div className="field">
+      <div className="field" style={{ opacity: 0.4 }}>
         <div className="field-header">
           <label>PASSWORD</label>
         </div>
@@ -73,40 +81,37 @@ export default function Register({ goToLogin, handleOAuth }) {
             placeholder="Create a password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            disabled
             required
           />
         </div>
       </div>
 
-      <button className="primary-btn" onClick={handleSubmit} disabled={loading}>
-        {loading ? "Signing up..." : (
-          <>
-            Sign Up
-            <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </>
-        )}
+      <button className="primary-btn" disabled style={{ opacity: 0.4, cursor: 'not-allowed' }}>
+        Sign Up
+        <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
       </button>
 
       <div className="divider">OR</div>
 
-      <div className="social-row">
-        <button className="social-box" type="button" onClick={() => handleOAuth("google")}>
+      <div className="social-row" style={{ opacity: 0.4, pointerEvents: 'none' }}>
+        <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
         </button>
-        <button className="social-box" type="button" onClick={() => handleOAuth("linkedin_oidc")}>
+        <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
           <img src="https://www.svgrepo.com/show/448234/linkedin.svg" alt="LinkedIn" />
         </button>
-        <button className="social-box" type="button" onClick={() => handleOAuth("github")}>
+        <button className="social-box" type="button" disabled style={{ cursor: 'not-allowed' }}>
           <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" />
         </button>
       </div>
 
-      <p className="switch">
+      <p className="switch" style={{ opacity: 0.4, pointerEvents: 'none', cursor: 'not-allowed' }}>
         Already have an account?{" "}
-        <span onClick={goToLogin}>
+        <span>
           Sign In
         </span>
       </p>

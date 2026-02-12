@@ -29,7 +29,7 @@ const Footer = () => {
                                 <li><a href="#features">Features</a></li>
                                 <li><a href="#pricing">Pricing</a></li>
                                 <li><a href="#demo">View Demo</a></li>
-                                <li><a href="#register">Get Started</a></li>
+                                <li><a href="#register" style={{ opacity: 0.4, pointerEvents: 'none', cursor: 'not-allowed' }}>Get Started</a></li>
                             </ul>
                         </div>
                         <div className="footer-column">

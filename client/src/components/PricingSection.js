@@ -96,8 +96,9 @@ function PricingSection() {
 
                         {/* CTA Button */}
                         <button
-                            onClick={() => navigate('/login')}
-                            className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-extrabold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-cyan-400/20 hover:shadow-cyan-400/40 transform hover:-translate-y-0.5"
+                            disabled
+                            style={{ opacity: 0.4, cursor: 'not-allowed' }}
+                            className="w-full bg-cyan-400 text-slate-900 font-extrabold py-4 px-6 rounded-lg shadow-lg"
                         >
                             Get Started for Free
                         </button>

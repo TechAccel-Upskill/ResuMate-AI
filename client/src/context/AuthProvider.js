@@ -24,6 +24,23 @@ export function AuthProvider({ children }) {
     let mounted = true;
 
     const getSession = async () => {
+      // Check for mock session first
+      const mockSessionStr = localStorage.getItem('supabase.auth.token');
+      if (mockSessionStr) {
+        try {
+          const mockSession = JSON.parse(mockSessionStr);
+          if (mounted && mockSession.user) {
+            setSession(mockSession);
+            setUser(mockSession.user);
+            setLoading(false);
+            return;
+          }
+        } catch (e) {
+          localStorage.removeItem('supabase.auth.token');
+        }
+      }
+
+      // Fall back to Supabase session
       const { data: { session } } = await supabase.auth.getSession();
       if (mounted) {
         handleSession(session);
@@ -57,10 +74,16 @@ export function AuthProvider({ children }) {
       mounted = false;
       subscription?.unsubscribe();
     };
-  }, [user, navigate, location.pathname]);
+  }, [navigate, location.pathname]);
 
   const handleSession = async (session) => {
+    // Don't clear session if we have a mock session
     if (!session) {
+      const mockSessionStr = localStorage.getItem('supabase.auth.token');
+      if (mockSessionStr) {
+        // We have a mock session, don't clear it
+        return;
+      }
       setSession(null);
       setUser(null);
       return;
@@ -91,49 +114,83 @@ export function AuthProvider({ children }) {
   };
 
   const signIn = async ({ email, password }) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return { error, message: error.message };
+    // Restricted mode: Only allow specific credentials
+    const ALLOWED_EMAIL = 'recruiter@techaccel';
+    const ALLOWED_PASSWORD = 'interns@techaccel';
+    
+    const normalizedEmail = email.toLowerCase().trim();
+    
+    if (normalizedEmail !== ALLOWED_EMAIL || password !== ALLOWED_PASSWORD) {
+      return { 
+        error: { message: "Invalid credentials. Access restricted." },
+        message: "Invalid credentials. Access restricted."
+      };
     }
 
-    // Check verification immediately
-    if (data.user && !data.user.email_confirmed_at && !data.user.confirmed_at) {
-      await supabase.auth.signOut();
-      const msg = "Please verify your email before logging in";
-      setAuthMessage(msg);
-      return { error: { message: msg } };
-    }
+    // Create a mock session for the authorized demo user
+    const mockUser = {
+      id: 'demo-recruiter-001',
+      email: ALLOWED_EMAIL,
+      email_confirmed_at: new Date().toISOString(),
+      confirmed_at: new Date().toISOString(),
+      user_metadata: {
+        name: 'Demo Recruiter',
+        role: 'recruiter'
+      },
+      app_metadata: {
+        provider: 'email',
+        providers: ['email']
+      }
+    };
 
-    return { data, error: null };
+    const mockSession = {
+      access_token: 'demo-access-token',
+      refresh_token: 'demo-refresh-token',
+      expires_in: 3600,
+      token_type: 'bearer',
+      user: mockUser
+    };
+
+    // Store mock session in localStorage for persistence
+    localStorage.setItem('supabase.auth.token', JSON.stringify(mockSession));
+    
+    // Set the session state
+    setSession(mockSession);
+    setUser(mockUser);
+    setAuthMessage("");
+
+    return { 
+      data: { user: mockUser, session: mockSession }, 
+      error: null 
+    };
   };
 
   const signUp = async ({ email, password }) => {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${siteUrl}/dashboard`,
-      },
-    });
-    return { data, error };
+    // Registration disabled in restricted mode
+    return { 
+      data: null,
+      error: { message: "Registration is currently disabled. Please contact administrator." }
+    };
   };
 
   const signInWithProvider = async (provider) => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: `${siteUrl}/dashboard`,
-      },
-    });
-    return { data, error };
+    // OAuth disabled in restricted mode
+    return { 
+      data: null, 
+      error: { message: "OAuth login is currently disabled." } 
+    };
   };
 
   const signOut = async () => {
+    // Clear mock session
+    localStorage.removeItem('supabase.auth.token');
+    
+    // Clear Supabase session (if any)
     await supabase.auth.signOut();
+    
+    // Reset state
+    setSession(null);
+    setUser(null);
     setAuthMessage("");
   };
 
