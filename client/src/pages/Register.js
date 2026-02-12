@@ -1,29 +1,14 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 
+// eslint-disable-next-line no-unused-vars
 export default function Register({ goToLogin, handleOAuth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const { signUp } = useAuth();
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
-    setMessage("");
-    setLoading(true);
-
-    const { error: signUpError } = await signUp({ email, password });
-
-    setLoading(false);
-    if (signUpError) {
-      setError(signUpError.message);
-    } else {
-      setMessage("Registration successful! Please check your email to verify your account.");
-    }
-  };
 
   return (
     <div className="login-card">

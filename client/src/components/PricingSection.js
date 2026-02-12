@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function PricingSection() {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
