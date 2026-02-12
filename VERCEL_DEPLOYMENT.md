@@ -33,7 +33,7 @@
    Go to **Project Settings → Git** and configure:
    - **Production Branch:** `main`
    - **Preview Deployments:** Select **"All branches"** (enables PR previews)
-   - **Ignored Build Step:** Leave unchecked
+   - **Ignored Build Step:** Leave empty (default)
    
    This ensures every Pull Request gets an automatic preview deployment.
 
