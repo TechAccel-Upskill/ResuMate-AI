@@ -27,3 +27,12 @@ The client app is deployed from the `main` branch using GitHub Actions.
 1. Push to `main` to trigger the workflow.
 2. Ensure GitHub Pages is set to **GitHub Actions** in repo settings.
 3. The site will be available at: https://techaccel-upskill.github.io/ResuMate-AI
+
+## Deployment (Vercel)
+
+To deploy the React app in `client`:
+
+1. Import the repo in Vercel.
+2. Set **Root Directory** to `client`.
+3. Use build command `npm run build` and output `build` (defaults for CRA).
+4. Deploy.
