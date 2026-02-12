@@ -1,7 +1,8 @@
-/* EmailAutomation.css */
+/* EmailAutomation.css - Universal Theme */
+
 .ea-container {
-    background-color: #0b0f15;
-    color: #e2e8f0;
+    background-color: var(--bg-page);
+    color: var(--text-main);
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     display: flex;
@@ -15,6 +16,96 @@
     /* For modal positioning */
 }
 
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 12px;
+    flex-shrink: 0;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    padding-left: 8px;
+}
+
+.sidebar-logo .icon-box {
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+}
+
+.sidebar-logo span {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.menu-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 2px;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.nav-item.active {
+    background-color: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+}
+
+.nav-item .material-icons {
+    font-size: 18px;
+}
+
 /* HEADER */
 .ea-header {
     height: 64px;
@@ -22,59 +113,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #1e293b;
-    background: #0b0f15;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-header);
+    /* Use header bg variable */
 }
 
-.ea-breadcrumbs {
-    color: #94a3b8;
-    font-size: 13px;
-    display: flex;
-    gap: 8px;
-}
-
-.ea-breadcrumbs .sep {
-    color: #334155;
-}
-
-.ea-breadcrumbs .current {
-    color: white;
-    font-weight: 600;
-}
-
-.ea-header-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.ai-status-pill {
-    background: #064e3b;
-    border: 1px solid #065f46;
-    color: #10b981;
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 600;
-}
-
-.ai-status-pill .dot {
-    width: 6px;
-    height: 6px;
-    background: #10b981;
-    border-radius: 50%;
-}
-
-/* CONTENT WRAPPER */
 .ea-content-wrapper {
-    padding: 32px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
+    padding: 32px 40px;
+    overflow-y: auto;
 }
+
 
 .ea-page-title-row {
     display: flex;
@@ -86,19 +134,19 @@
 .ea-page-title-row h1 {
     font-size: 28px;
     font-weight: 700;
-    color: white;
+    color: var(--text-main);
     margin: 0 0 8px 0;
 }
 
 .ea-page-title-row .subtitle {
     font-size: 14px;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin: 0;
 }
 
 .ai-badge-ready {
     background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    color: var(--success);
     border: 1px solid rgba(16, 185, 129, 0.2);
     padding: 6px 16px;
     border-radius: 20px;
@@ -115,14 +163,15 @@
 
 /* CANDIDATE CARD */
 .ea-candidate-card {
-    background: #111827;
-    border: 1px solid #374151;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     padding: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
 }
 
 .ea-c-profile {
@@ -135,19 +184,19 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    border: 2px solid #6b7280;
+    border: 2px solid var(--border-subtle);
 }
 
 .ea-c-info h2 {
     font-size: 20px;
     font-weight: 700;
-    color: white;
+    color: var(--text-main);
     margin: 0 0 8px 0;
 }
 
 .tag-complete {
-    background: #374151;
-    color: #9ca3af;
+    background: var(--bg-active);
+    color: var(--text-muted);
     font-size: 10px;
     font-weight: 700;
     padding: 2px 6px;
@@ -159,7 +208,7 @@
     display: flex;
     gap: 24px;
     font-size: 13px;
-    color: #9ca3af;
+    color: var(--text-muted);
 }
 
 .ea-c-meta span {
@@ -170,7 +219,7 @@
 
 .ea-c-meta .material-icons {
     font-size: 16px;
-    color: #6b7280;
+    color: var(--text-secondary);
 }
 
 .match-score {
@@ -184,8 +233,8 @@
 
 .btn-outline-sm {
     background: transparent;
-    border: 1px solid #4b5563;
-    color: #d1d5db;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 13px;
@@ -194,23 +243,25 @@
 }
 
 .btn-outline-sm:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: #6b7280;
+    background: var(--bg-hover);
+    border-color: var(--text-main);
+    color: var(--text-main);
 }
 
 /* EDITOR CONTAINER */
 .email-editor-container {
-    background: #11151c;
-    /* Slightly different dark */
-    border: 1px solid #1e293b;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .editor-top-bar {
-    background: #161b26;
+    background: var(--bg-active);
+    /* Slightly darker/lighter depending on mode */
     padding: 16px 24px;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid var(--border-subtle);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -218,16 +269,16 @@
 
 .type-toggle {
     display: flex;
-    background: #0f1219;
+    background: var(--bg-page);
     padding: 4px;
     border-radius: 8px;
-    border: 1px solid #1e293b;
+    border: 1px solid var(--border-subtle);
 }
 
 .type-toggle button {
     background: transparent;
     border: none;
-    color: #94a3b8;
+    color: var(--text-muted);
     padding: 8px 16px;
     font-size: 13px;
     font-weight: 500;
@@ -239,13 +290,14 @@
 }
 
 .type-toggle button.active {
-    background: #334155;
-    color: white;
+    background: var(--bg-active);
+    color: var(--text-main);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .ai-gen-label {
     background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
+    color: var(--primary);
     border: 1px solid rgba(99, 102, 241, 0.3);
     padding: 6px 12px;
     border-radius: 6px;
@@ -275,25 +327,24 @@
 
 .field-row label {
     width: 80px;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 14px;
     font-weight: 500;
 }
 
 .field-input {
     flex: 1;
-    background: #0b0f15;
-    border: 1px solid #334155;
+    background: var(--bg-page);
+    border: 1px solid var(--border-subtle);
     padding: 10px 16px;
     border-radius: 8px;
-    color: white;
+    color: var(--text-main);
     font-size: 14px;
 }
 
 .field-input.readonly {
-    background: #1e293b;
-    border-color: #334155;
-    color: #cbd5e1;
+    background: var(--bg-active);
+    color: var(--text-muted);
 }
 
 /* BODY & TOOLBAR */
@@ -306,24 +357,24 @@
     align-items: center;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid var(--border-subtle);
     margin-bottom: 16px;
 }
 
 .editor-toolbar .material-icons {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 18px;
     cursor: pointer;
 }
 
 .editor-toolbar .material-icons:hover {
-    color: #94a3b8;
+    color: var(--text-main);
 }
 
 .div-line {
     width: 1px;
     height: 16px;
-    background: #334155;
+    background: var(--border-subtle);
 }
 
 .ai-tools {
@@ -364,7 +415,7 @@
     height: 300px;
     background: transparent;
     border: none;
-    color: #e2e8f0;
+    color: var(--text-main);
     font-size: 14px;
     line-height: 1.6;
     resize: none;
@@ -375,8 +426,8 @@
 /* FOOTER */
 .editor-footer {
     padding: 16px 24px;
-    background: #161b26;
-    border-top: 1px solid #1e293b;
+    background: var(--bg-active);
+    border-top: 1px solid var(--border-subtle);
     display: flex;
     justify-content: flex-end;
     gap: 12px;
@@ -385,7 +436,7 @@
 .btn-cancel {
     background: transparent;
     border: none;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -393,11 +444,11 @@
 }
 
 .btn-cancel:hover {
-    color: #cbd5e1;
+    color: var(--text-main);
 }
 
 .btn-send {
-    background: #6366f1;
+    background: var(--primary);
     border: none;
     color: white;
     padding: 10px 24px;
@@ -413,7 +464,7 @@
 }
 
 .btn-send:hover {
-    background: #4f46e5;
+    background: var(--primary-hover);
 }
 
 /* MODAL STYLES */
@@ -432,14 +483,15 @@
 }
 
 .modal-content {
-    background: #111827;
-    border: 1px solid #374151;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 16px;
     width: 480px;
     padding: 32px;
     position: relative;
     text-align: center;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    /* Keep shadow strong? or use var */
     animation: fadeIn 0.3s ease;
 }
 
@@ -461,7 +513,7 @@
     left: 16px;
     background: none;
     border: none;
-    color: #9ca3af;
+    color: var(--text-muted);
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
@@ -469,8 +521,8 @@
 }
 
 .modal-close-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--bg-hover);
+    color: var(--text-main);
 }
 
 .modal-icon-box {
@@ -492,19 +544,19 @@
 .modal-content h2 {
     font-size: 20px;
     font-weight: 700;
-    color: white;
+    color: var(--text-main);
     margin: 0 0 12px 0;
 }
 
 .modal-content p {
     font-size: 14px;
-    color: #e2e8f0;
+    color: var(--text-main);
     line-height: 1.6;
     margin: 0 0 8px 0;
 }
 
 .modal-subtext {
-    color: #94a3b8 !important;
+    color: var(--text-muted) !important;
     font-size: 13px !important;
     margin-bottom: 24px !important;
 }
@@ -515,7 +567,7 @@
     border-radius: 8px;
     padding: 12px;
     font-size: 12px;
-    color: #a5b4fc;
+    color: var(--primary);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -524,5 +576,74 @@
 
 .modal-info-box .material-icons {
     font-size: 18px;
-    color: #818cf8;
+    color: var(--primary);
+}
+
+/* ========================================
+   DARK MODE OVERRIDES - Email Center
+   ======================================== */
+
+[data-theme='dark'] .type-toggle button {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .type-toggle button.active {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .field-row label {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .field-input {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .field-input.readonly {
+    color: #9CA3AF !important;
+}
+
+[data-theme='dark'] .email-textarea {
+    color: #FFFFFF !important;
+}
+
+/* Dark Mode: Enhanced Sidebar Navigation States */
+[data-theme='dark'] .nav-item {
+    transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .nav-item:hover {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .nav-item:hover .material-icons {
+    color: #0F172A !important;
+}
+
+[data-theme='dark'] .nav-item.active {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme='dark'] .nav-item.active .material-icons {
+    color: #0F172A !important;
+}
+
+/* Modal Dark Mode Overrides */
+[data-theme='dark'] .modal-content h2 {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .modal-content p {
+    color: #FFFFFF !important;
+}
+
+[data-theme='dark'] .modal-subtext {
+    color: #9CA3AF !important;
+    /* Slightly muted for hierarchy */
 }

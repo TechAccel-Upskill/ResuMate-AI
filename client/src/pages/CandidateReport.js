@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './CandidateReport.css';
 import '../pages/Dashboard.css';
+import ThemeToggle from '../components/ThemeToggle';
 
 const CandidateReport = () => {
     // const { id } = useParams(); // In a real app, fetch data by ID
@@ -11,7 +12,7 @@ const CandidateReport = () => {
             {/* TOP NAVIGATION (Simplified for Report View) */}
             <nav className="cr-nav">
                 <div className="cr-nav-left">
-                    <div className="icon-box" style={{ background: '#6366f1', width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="icon-box" style={{ background: 'var(--primary)', width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <span className="material-icons" style={{ color: 'white', fontSize: '20px' }}>smart_toy</span>
                     </div>
                     <span className="brand-text">ResuMate AI</span>
@@ -29,6 +30,7 @@ const CandidateReport = () => {
                 </div>
                 <div className="cr-nav-right">
                     <div className="icon-btn"><span className="material-icons">notifications</span></div>
+                    <ThemeToggle />
                     <div className="user-c">AI</div>
                 </div>
             </nav>
@@ -155,7 +157,7 @@ const CandidateReport = () => {
                     {/* EXPERIENCE COMPARISON */}
                     <div className="exp-comp-section">
                         <div className="exp-header">
-                            <span className="material-icons" style={{ color: '#818cf8' }}>compare_arrows</span>
+                            <span className="material-icons" style={{ color: 'var(--primary)' }}>compare_arrows</span>
                             <h3>Experience Comparison</h3>
                         </div>
 
@@ -165,14 +167,14 @@ const CandidateReport = () => {
                                 title="Job Duration Alignment"
                                 status="EXCEEDS"
                                 statusColor="success"
-                                desc={<span>Candidate has <b>6.5 years</b> of relevant experience versus the required <b>5 years</b>. Stability score is high.</span>}
+                                desc={<span>Candidate has <span style={{ color: '#3b82f6', fontWeight: 600 }}>6.5 years</span> of relevant experience versus the required <span style={{ color: '#3b82f6', fontWeight: 600 }}>5 years</span>. Stability score is high.</span>}
                             />
                             <TimelineItem
                                 icon="domain"
                                 title="Industry Fit"
                                 status="PARTIAL MATCH"
                                 statusColor="warning"
-                                desc={<span>Previous role was in <b>E-commerce</b>. Current role requires <b>Fintech</b> domain knowledge.</span>}
+                                desc={<span>Previous role was in <span style={{ color: '#3b82f6', fontWeight: 600 }}>E-commerce</span>. Current role requires <span style={{ color: '#3b82f6', fontWeight: 600 }}>Fintech</span> domain knowledge.</span>}
                             />
                             <TimelineItem
                                 icon="school"
@@ -218,7 +220,7 @@ const CandidateReport = () => {
                     <div className="widget-card">
                         <div className="w-header">
                             <h3>Contact Information</h3>
-                            <span className="material-icons" style={{ fontSize: '16px', color: '#64748b' }}>badge</span>
+                            <span className="material-icons" style={{ fontSize: '16px', color: 'var(--text-muted)' }}>badge</span>
                         </div>
                         <div className="contact-list">
                             <div className="c-row">
@@ -240,28 +242,75 @@ const CandidateReport = () => {
                         </div>
                     </div>
 
-                    {/* RECRUITER NOTES */}
+                    {/* RECRUITER NOTES - COLLABORATIVE */}
                     <div className="widget-card notes-widget">
-                        <div className="w-header">
-                            <h3>Recruiter Notes</h3>
-                            <span className="material-icons" style={{ fontSize: '16px', color: '#6366f1', cursor: 'pointer' }}>add</span>
-                        </div>
-                        <div className="note-list">
-                            <div className="note-item">
-                                <div className="note-meta">
-                                    <span className="n-avatar">S</span>
-                                    <span className="n-name">Sarah M.</span>
-                                    <span className="n-time">2h ago</span>
+                        <div className="notes-header-new">
+                            <div className="notes-title-group">
+                                <h3>Recruiter<br />Notes</h3>
+                                <span className="shared-label">SHARED REVIEW<br />SPACE</span>
+                            </div>
+                            <div className="collab-avatars">
+                                <div className="avatar-group">
+                                    <img src="https://i.pravatar.cc/150?img=32" alt="Collab 1" className="collab-avatar-img" />
+                                    <img src="https://i.pravatar.cc/150?img=12" alt="Collab 2" className="collab-avatar-img" />
+                                    <img src="https://i.pravatar.cc/150?img=5" alt="Collab 3" className="collab-avatar-img" />
                                 </div>
-                                <p>Seems promising. I like the leadership experience. Let's dig deeper into the GraphQL gap during the screen.</p>
+                                <div className="collab-avatar-add">
+                                    <span className="material-icons" style={{ fontSize: '16px', color: 'white' }}>person_add</span>
+                                </div>
                             </div>
                         </div>
-                        <div className="note-input">
-                            <input type="text" placeholder="Type a new note..." />
-                            <div className="note-actions">
-                                <span className="material-icons">format_bold</span>
-                                <span className="material-icons">format_list_bulleted</span>
-                                <button className="send-btn"><span className="material-icons">send</span></button>
+
+                        <div className="collab-info">
+                            <span className="material-icons">groups</span>
+                            <p>All 3 added collaborators can view this report and add notes to contribute to the final decision.</p>
+                        </div>
+
+                        <div className="note-list">
+                            <div className="note-item">
+                                <div className="note-header-row">
+                                    <div className="note-user">
+                                        <span className="n-avatar" style={{ background: '#10b981' }}>M</span>
+                                        <span className="n-name">Manas Thumu <span className="you-tag">(You)</span></span>
+                                    </div>
+                                    <span className="n-time">2h ago</span>
+                                </div>
+                                <p className="note-text">Seems promising. I like the leadership experience. Let's dig deeper into the GraphQL gap during the screen.</p>
+                            </div>
+
+                            <div className="note-item">
+                                <div className="note-header-row">
+                                    <div className="note-user">
+                                        <span className="n-avatar" style={{ background: '#3b82f6' }}>D</span>
+                                        <span className="n-name">David K.</span>
+                                    </div>
+                                    <span className="n-time">1h ago</span>
+                                </div>
+                                <p className="note-text">Agreed on the GraphQL part. I noticed they have some Apollo Client projects in their portfolio though. Might not be a complete zero.</p>
+                            </div>
+
+                            <div className="note-item">
+                                <div className="note-header-row">
+                                    <div className="note-user">
+                                        <span className="n-avatar" style={{ background: '#4ade80' }}>P</span>
+                                        <span className="n-name">Priya S.</span>
+                                    </div>
+                                    <span className="n-time">15m ago</span>
+                                </div>
+                                <p className="note-text"></p>
+                            </div>
+                        </div>
+
+                        <div className="note-input-new">
+                            <textarea placeholder="Contribute a note..." rows="1"></textarea>
+                            <div className="note-actions-new">
+                                <div className="format-buttons">
+                                    <button className="format-btn"><span className="material-icons">format_bold</span></button>
+                                    <button className="format-btn"><span className="material-icons">format_list_bulleted</span></button>
+                                </div>
+                                <button className="send-btn-new">
+                                    <span className="material-icons">send</span>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DragDropZone = ({ selectedRole, setSelectedRole, selectedSkills, setSelectedSkills, selectedEducation, setSelectedEducation, selectedLocation, setSelectedLocation }) => {
+const DragDropZone = ({ selectedRole, setSelectedRole, selectedSkills, setSelectedSkills, selectedEducation, setSelectedEducation, selectedLocation, setSelectedLocation, onClear }) => {
 
     // ... drag handlers handleDragOver, handleDragEnter, handleDragLeave stay same ...
     const handleDragOver = (e) => {
@@ -60,12 +60,7 @@ const DragDropZone = ({ selectedRole, setSelectedRole, selectedSkills, setSelect
                 <div className="card-title">Create Your Own</div>
                 <span
                     style={{ cursor: 'pointer', fontSize: '13px', color: '#818cf8' }}
-                    onClick={() => {
-                        setSelectedRole(null);
-                        setSelectedSkills([]);
-                        setSelectedEducation([]);
-                        setSelectedLocation(null);
-                    }}
+                    onClick={onClear}
                 >
                     Clear
                 </span>

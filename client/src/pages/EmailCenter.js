@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+
 import './EmailCenter.css';
 import '../pages/Dashboard.css';
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
-import BrandingFooter from '../components/BrandingFooter';
+import ThemeToggle from '../components/ThemeToggle';
 
 const EmailCenter = () => {
-    const { user, signOut } = useAuth();
-    // const { id } = useParams(); // Use this to fetch candidate data in real app
-
     // Mock Data for "Sarah Jenkins" or "Alex Jensen"
     const candidate = {
         name: 'Alex Jensen',
@@ -23,9 +20,7 @@ const EmailCenter = () => {
 
     const [showModal, setShowModal] = useState(false); // Modal state
 
-    const handleSignOut = async () => {
-        await signOut();
-    };
+
 
     const handleSendClick = () => {
         setShowModal(true);
@@ -68,25 +63,17 @@ const EmailCenter = () => {
 
                 {/* RECRUITER CARD */}
                 <RecruiterProfileCard />
-
-
-
-                <BrandingFooter />
             </aside>
 
             {/* MAIN CONTENT */}
             <main className="ea-main">
                 {/* Header */}
                 <header className="ea-header">
-                    <div className="ea-breadcrumbs">
-                        Candidates <span className="sep">/</span> {candidate.name} <span className="sep">/</span> <span className="current">Email Center</span>
+                    <div className="ea-breadcrumbs" style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+                        Reports › Email Center
                     </div>
                     <div className="ea-header-right">
-                        <div className="ai-status-pill">
-                            <div className="dot"></div> AI Online
-                        </div>
-                        <span className="material-icons notif">notifications_none</span>
-                        <div className="user-c">AI</div>
+                        <ThemeToggle />
                     </div>
                 </header>
 
@@ -181,6 +168,7 @@ const EmailCenter = () => {
 
                             {/* Text Area */}
                             <textarea
+                                key={emailType}
                                 className="email-textarea"
                                 defaultValue={
                                     emailType === 'selection'
@@ -200,16 +188,19 @@ Alex Morgan
 Recruiter Admin`
                                         : `Dear ${candidate.name.split(' ')[0]},
 
-Thank you for giving us the opportunity to consider your application for the ${candidate.role} position at ResuMate AI. We appreciate the time and effort you put into the interview process.
+Thank you so much for taking the time to apply for the ${candidate.role} position at ResuMate AI and for sharing your experience with us throughout the interview process. We truly enjoyed learning more about your background and accomplishments.
 
-After careful consideration, we have decided to move forward with other candidates whose qualifications more closely match our current needs. This was a difficult decision, as we were impressed with your background.
+After careful consideration, we regret to inform you that we have decided to move forward with another candidate whose experience more closely aligns with our current requirements. This was not an easy decision, as we met many strong candidates, including you.
 
-We will keep your resume on file for future openings that may be a better fit. We wish you all the best in your job search and future professional endeavors.
+We sincerely appreciate the effort and time you invested in your application and interviews. We encourage you to apply again in the future should a role open up that matches your skills and interests—we’d be happy to reconnect.
 
-Best regards,
+We wish you all the very best in your continued job search and professional journey.
+
+Warm regards,
 
 Alex Morgan
-Recruiter Admin`
+Recruiter Admin
+ResuMate AI`
                                 }
                             />
                         </div>

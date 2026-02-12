@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // added useNavigate
-import { useAuth } from '../context/AuthProvider'; // added useAuth
+
 import './JobDescription.css';
 import '../pages/Dashboard.css';
 
@@ -12,12 +12,11 @@ import ExperienceRange from '../components/JobDescription/ExperienceRange';
 
 import ReviewJobDescription from '../components/JobDescription/ReviewJobDescription';
 import RecruiterProfileCard from '../components/RecruiterProfileCard';
-import BrandingFooter from '../components/BrandingFooter';
+import ThemeToggle from '../components/ThemeToggle';
 
 // Supabase import removed
 
 const JobDescription = () => {
-    const { user, signOut } = useAuth(); // Added hook
     const navigate = useNavigate(); // Added hook
 
     // 🧠 SINGLE SOURCE OF TRUTH
@@ -35,7 +34,7 @@ const JobDescription = () => {
     const [rawJD, setRawJD] = useState("");
     const [expandedSection, setExpandedSection] = useState('job roles');
     const [showReview, setShowReview] = useState(false);
-    const [isSaving, setIsSaving] = useState(false);
+
 
     // Separate state for Experience Range slider as it's a UI control initially
     // We will sync this to draft.experience on save/review if source is manual
@@ -108,11 +107,23 @@ const JobDescription = () => {
         });
     };
 
+    // --- CLEAR MANUAL FIELDS ---
+    const handleClearManualFields = () => {
+        setJobDescriptionDraft(prev => ({
+            ...prev,
+            source: null,
+            role: [],
+            skills: [],
+            education: [],
+            location: []
+        }));
+    };
+
     // --- SAVE LOGIC ---
     const handleSaveJob = async () => {
         console.log("🔥 Save button clicked - frontend");
         try {
-            setIsSaving(true);
+
 
             // Prepare payload for Backend
             const payload = {
@@ -161,7 +172,7 @@ const JobDescription = () => {
             console.error(error);
             alert("❌ Error saving Job Description");
         } finally {
-            setIsSaving(false);
+
         }
     };
 
@@ -224,7 +235,7 @@ const JobDescription = () => {
             <aside className="jd-sidebar">
                 <div className="jd-sidebar-header">
                     <div className="jd-logo">
-                        <div className="icon-box" style={{ width: '24px', height: '24px', background: '#5b5fc7', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div className="icon-box" style={{ width: '24px', height: '24px', background: 'var(--primary)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <span className="material-icons" style={{ fontSize: '16px', color: 'white' }}>smart_toy</span>
                         </div>
                         <span>ResuMate AI</span>
@@ -234,7 +245,7 @@ const JobDescription = () => {
                             <span className="material-icons">dashboard</span>
                             <span>Dashboard</span>
                         </Link>
-                        <Link to="/job-description" className="nav-item active" style={{ background: 'rgba(91, 95, 199, 0.15)', color: '#a5b4fc', borderRadius: '8px' }}>
+                        <Link to="/job-description" className="nav-item active" style={{ background: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)', borderRadius: '8px' }}>
                             <span className="material-icons">description</span>
                             <span>Job Description</span>
                         </Link>
@@ -271,7 +282,7 @@ const JobDescription = () => {
                             <div className="lib-content">
                                 {['Senior Frontend Dev', 'Product Manager', 'UX Designer', 'Backend Engineer', 'Full Stack Developer'].map(role => (
                                     <div key={role} className="lib-item" draggable onDragStart={(e) => e.dataTransfer.setData("application/json", JSON.stringify({ type: 'role', label: role }))}>
-                                        <span className="material-icons" style={{ fontSize: '14px', color: '#64748b' }}>drag_indicator</span> {role}
+                                        <span className="material-icons" style={{ fontSize: '14px', color: 'var(--text-muted)' }}>drag_indicator</span> {role}
                                     </div>
                                 ))}
                             </div>
@@ -299,7 +310,7 @@ const JobDescription = () => {
                                         draggable
                                         onDragStart={(e) => e.dataTransfer.setData("application/json", JSON.stringify({ type: 'skill', label: skill }))}
                                     >
-                                        <span className="material-icons" style={{ fontSize: '14px', color: '#64748b' }}>drag_indicator</span>
+                                        <span className="material-icons" style={{ fontSize: '14px', color: 'var(--text-muted)' }}>drag_indicator</span>
                                         {skill}
                                     </div>
                                 ))}
@@ -328,7 +339,7 @@ const JobDescription = () => {
                                         draggable
                                         onDragStart={(e) => e.dataTransfer.setData("application/json", JSON.stringify({ type: 'education', label: edu }))}
                                     >
-                                        <span className="material-icons" style={{ fontSize: '14px', color: '#64748b' }}>drag_indicator</span>
+                                        <span className="material-icons" style={{ fontSize: '14px', color: 'var(--text-muted)' }}>drag_indicator</span>
                                         {edu}
                                     </div>
                                 ))}
@@ -357,7 +368,7 @@ const JobDescription = () => {
                                         draggable
                                         onDragStart={(e) => e.dataTransfer.setData("application/json", JSON.stringify({ type: 'location', label: loc }))}
                                     >
-                                        <span className="material-icons" style={{ fontSize: '14px', color: '#64748b' }}>drag_indicator</span>
+                                        <span className="material-icons" style={{ fontSize: '14px', color: 'var(--text-muted)' }}>drag_indicator</span>
                                         {loc}
                                     </div>
                                 ))}
@@ -368,10 +379,6 @@ const JobDescription = () => {
 
                 {/* RECRUITER CARD */}
                 <RecruiterProfileCard />
-
-
-
-                <BrandingFooter />
             </aside>
 
             {/* MAIN CONTENT */}
@@ -385,7 +392,10 @@ const JobDescription = () => {
                 ) : (
                     <>
                         <header className="jd-header">
-                            <div className="breadcrumbs">Dashboard  ›  New Job Posting  ›  <span style={{ color: 'white' }}>Job Description</span></div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                <div className="breadcrumbs">Dashboard  ›  New Job Posting  ›  Job Description</div>
+                                <ThemeToggle />
+                            </div>
                             <div className="jd-title-row">
                                 <div className="jd-title">
                                     <h1>Let's start with the Job Description</h1>
@@ -394,11 +404,11 @@ const JobDescription = () => {
                                 <div className="step-tracker">
                                     <div style={{ flex: 1 }}>
                                         <span className="step-info">STEP 1 OF 4</span>
-                                        <div className="progress-bar" style={{ height: '4px', background: '#334155', borderRadius: '2px' }}>
-                                            <div style={{ width: '25%', background: '#818cf8', height: '100%' }}></div>
+                                        <div className="progress-bar" style={{ height: '4px', background: 'var(--border-subtle)', borderRadius: '2px' }}>
+                                            <div style={{ width: '25%', background: 'var(--primary)', height: '100%' }}></div>
                                         </div>
                                     </div>
-                                    <span style={{ background: '#312e81', color: '#818cf8', fontSize: '11px', padding: '2px 6px', borderRadius: '4px', fontWeight: 600 }}>25%</span>
+                                    <span style={{ background: 'var(--bg-active)', color: 'var(--primary)', fontSize: '11px', padding: '2px 6px', borderRadius: '4px', fontWeight: 600 }}>25%</span>
                                 </div>
                             </div>
                         </header>
@@ -410,6 +420,7 @@ const JobDescription = () => {
                                 selectedSkills={getManualSkillsForUI()} setSelectedSkills={setManualSkillsCompatible}
                                 selectedEducation={getManualEducationForUI()} setSelectedEducation={updateManualEducation}
                                 selectedLocation={getManualLocationForUI()} setSelectedLocation={updateManualLocation}
+                                onClear={handleClearManualFields}
                             />
 
                             {/* CARD 2: PASTE DESCRIPTION */}
@@ -431,7 +442,7 @@ const JobDescription = () => {
 
                         <footer className="jd-footer">
                             <button className="btn-outline" onClick={handleReviewClick}>Review and Save</button>
-                            <button className="btn-primary">Continue →</button>
+                            <button className="btn-primary" onClick={() => navigate('/resume-scan')}>Continue →</button>
                         </footer>
                     </>
                 )}
