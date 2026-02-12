@@ -1,10 +1,10 @@
 .footer {
-    background-color: #020617;
-    color: #94a3b8;
+    background-color: var(--bg-page);
+    color: var(--text-muted);
     padding: 2rem 0 1.5rem;
     /* Reduced padding */
     font-family: 'Inter', sans-serif;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid var(--border-subtle);
 }
 
 .footer-container {
@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: white;
+    color: var(--text-main);
     font-size: 1.25rem;
     /* Slightly smaller */
     font-weight: 700;
@@ -66,7 +66,7 @@
 }
 
 .footer-column h4 {
-    color: white;
+    color: var(--text-main);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -85,26 +85,26 @@
 }
 
 .footer-column a {
-    color: #94a3b8;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.2s;
 }
 
 .footer-column a:hover {
-    color: white;
+    color: var(--text-main);
 }
 
 /* Middle Section - Collaborate */
 .collaborate-card {
-    background-color: #0f172a;
+    background-color: var(--bg-card);
     border-radius: 1rem;
     padding: 1.5rem;
     /* Reduced padding */
     text-align: center;
     margin-bottom: 2rem;
     /* Reduced margin */
-    border: 1px solid #1e293b;
+    border: 1px solid var(--border-subtle);
     display: flex;
     /* Flex to align items better if needed */
     flex-direction: column;
@@ -112,7 +112,7 @@
 }
 
 .collaborate-title {
-    color: white;
+    color: var(--text-main);
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -120,7 +120,7 @@
 
 .collaborate-subtitle {
     margin-bottom: 1.5rem;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -134,11 +134,11 @@
 
 .collaborate-input {
     flex: 1;
-    background-color: #020617;
-    border: 1px solid #1e293b;
+    background-color: var(--bg-page);
+    border: 1px solid var(--border-subtle);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
-    color: white;
+    color: var(--text-main);
     font-family: inherit;
     resize: none;
     height: 2.75rem;
@@ -180,13 +180,13 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1.5rem;
-    border-top: 1px solid #1e293b;
+    border-top: 1px solid var(--border-subtle);
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .footer-credits strong {
-    color: #94a3b8;
+    color: var(--text-muted);
 }
 
 .footer-credits em {

@@ -32,7 +32,7 @@ function AboutSection() {
         <section
             id="about"
             ref={sectionRef}
-            className="relative py-24 lg:py-32 overflow-hidden bg-[#0a0f1a]"
+            className="relative py-24 lg:py-32 overflow-hidden bg-slate-50 dark:bg-[#0a0f1a]"
         >
             <CollaborationModal
                 isOpen={isModalOpen}
@@ -40,21 +40,21 @@ function AboutSection() {
             />
 
             {/* Subtle background gradient from top */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-[#0a0f1a] to-slate-950/50 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-200/60 via-slate-50 to-slate-100 dark:from-slate-950/50 dark:via-[#0a0f1a] dark:to-slate-950/50 pointer-events-none" />
 
             <div className="max-w-[1280px] mx-auto px-6 relative z-10">
                 {/* Header - Centered */}
                 <div className={`text-center max-w-4xl mx-auto mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                     <div className="inline-flex items-center gap-2 border border-cyan-500/20 bg-cyan-900/10 rounded-full px-4 py-1.5 mb-8">
-                        <span className="text-[11px] font-bold text-cyan-400 uppercase tracking-widest">ABOUT RESUMATE AI</span>
+                        <span className="text-[11px] font-bold text-cyan-500 dark:text-cyan-400 uppercase tracking-widest">ABOUT RESUMATE AI</span>
                     </div>
 
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
                         Built to Solve Real-World <br />
                         Hiring Challenges
                     </h2>
 
-                    <p className="text-lg text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
+                    <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
                         Bridging the gap between talent and opportunities with precision-engineered AI solutions designed for the modern recruiter.
                     </p>
                 </div>
@@ -66,11 +66,11 @@ function AboutSection() {
                     <div className="lg:col-span-7 flex flex-col gap-12">
                         {/* Story Text */}
                         <div className={`space-y-6 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                            <h3 className="text-2xl font-bold text-white mb-2">Our Story</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Our Story</h3>
 
-                            <div className="space-y-6 text-slate-400 text-[15px] leading-7 font-medium">
+                            <div className="space-y-6 text-slate-600 dark:text-slate-400 text-[15px] leading-7 font-medium">
                                 <p>
-                                    ResuMate AI is being developed by interns at <span className="text-white font-bold">TechAccel India Pvt. Ltd.</span>, an upskilling-focused organization that mentors emerging talent to work on real-world problems faced by the IT industry.
+                                    ResuMate AI is being developed by interns at <span className="text-slate-900 dark:text-white font-bold">TechAccel India Pvt. Ltd.</span>, an upskilling-focused organization that mentors emerging talent to work on real-world problems faced by the IT industry.
                                 </p>
 
                                 <p>
@@ -87,28 +87,28 @@ function AboutSection() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {/* UI-First Design */}
                             <div
-                                className={`group relative bg-[#0f1623] border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                                className={`group relative bg-white dark:bg-[#0f1623] border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                                 style={{ transitionDelay: '300ms' }}
                             >
                                 <div className="mb-4">
-                                    <span className="material-icons text-cyan-400 text-2xl">architecture</span>
+                                    <span className="material-icons text-cyan-500 dark:text-cyan-400 text-2xl">architecture</span>
                                 </div>
-                                <h4 className="text-base font-bold text-white mb-2">UI-First Design</h4>
-                                <p className="text-slate-500 text-xs leading-relaxed font-medium">
+                                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">UI-First Design</h4>
+                                <p className="text-slate-600 dark:text-slate-500 text-xs leading-relaxed font-medium">
                                     Prioritizing seamless UX for high-volume hiring efficiency.
                                 </p>
                             </div>
 
                             {/* Recruiter-Driven */}
                             <div
-                                className={`group relative bg-[#0f1623] border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                                className={`group relative bg-white dark:bg-[#0f1623] border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                                 style={{ transitionDelay: '400ms' }}
                             >
                                 <div className="mb-4">
-                                    <span className="material-icons text-cyan-400 text-2xl">groups</span>
+                                    <span className="material-icons text-cyan-500 dark:text-cyan-400 text-2xl">groups</span>
                                 </div>
-                                <h4 className="text-base font-bold text-white mb-2">Recruiter-Driven</h4>
-                                <p className="text-slate-500 text-xs leading-relaxed font-medium">
+                                <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">Recruiter-Driven</h4>
+                                <p className="text-slate-600 dark:text-slate-500 text-xs leading-relaxed font-medium">
                                     Features mapped to solve actual recruitment pain points.
                                 </p>
                             </div>
@@ -119,7 +119,7 @@ function AboutSection() {
                     <div className="lg:col-span-5 space-y-6">
                         {/* Industry Collaboration Card - Compact Version */}
                         <div
-                            className={`relative bg-gradient-to-br from-[#0f1623] to-[#0a0f1a] border border-slate-800 rounded-2xl p-6 shadow-2xl shadow-cyan-900/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                            className={`relative bg-gradient-to-br from-white to-slate-50 dark:from-[#0f1623] dark:to-[#0a0f1a] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-2xl shadow-cyan-900/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                             style={{ transitionDelay: '200ms' }}
                         >
                             {/* Glow effect */}
@@ -128,12 +128,12 @@ function AboutSection() {
                             <div className="relative z-10">
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="flex items-center justify-center w-8 h-8 rounded bg-cyan-950/30 border border-cyan-800/50">
-                                        <span className="material-icons text-cyan-400 text-lg">handshake</span>
+                                        <span className="material-icons text-cyan-500 dark:text-cyan-400 text-lg">handshake</span>
                                     </div>
-                                    <h4 className="text-base font-bold text-cyan-400">Industry Collaboration</h4>
+                                    <h4 className="text-base font-bold text-cyan-500 dark:text-cyan-400">Industry Collaboration</h4>
                                 </div>
 
-                                <p className="text-slate-400 text-xs leading-relaxed mb-5">
+                                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-5">
                                     Seeking strategic partnerships with HR tech firms and recruitment agencies to refine our AI models.
                                 </p>
 
@@ -146,7 +146,7 @@ function AboutSection() {
                                         <span className="material-icons text-base">arrow_forward</span>
                                     </button>
 
-                                    <button className="w-full bg-transparent hover:bg-slate-800 text-white text-sm font-semibold py-2.5 px-3 rounded-lg border border-slate-700 transition-colors duration-200">
+                                    <button className="w-full bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white text-sm font-semibold py-2.5 px-3 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors duration-200">
                                         Feedback
                                     </button>
                                 </div>
@@ -155,7 +155,7 @@ function AboutSection() {
 
                         {/* Product Owner Card */}
                         <div
-                            className={`relative bg-[#0f1623] border border-slate-800 rounded-2xl p-8 text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                            className={`relative bg-white dark:bg-[#0f1623] border border-slate-200 dark:border-slate-800 rounded-2xl p-8 text-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                             style={{ transitionDelay: '400ms' }}
                         >
                             {/* Soft Glow */}
@@ -163,7 +163,7 @@ function AboutSection() {
 
                             <div className="relative z-10 flex flex-col items-center">
                                 {/* Avatar */}
-                                <div className="w-32 h-32 rounded-full border-4 border-[#0a0f1a] shadow-lg mb-5 overflow-hidden bg-slate-800 relative">
+                                <div className="w-32 h-32 rounded-full border-4 border-slate-50 dark:border-[#0a0f1a] shadow-lg mb-5 overflow-hidden bg-slate-800 relative">
                                     <img
                                         src="/assets/images/manas.png"
                                         alt="Manas Thumu"
@@ -172,13 +172,13 @@ function AboutSection() {
                                 </div>
 
                                 {/* Name & Role */}
-                                <h3 className="text-2xl font-bold text-white mb-1">Manas Thumu</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">Manas Thumu</h3>
                                 <div className="inline-block bg-cyan-900/30 border border-cyan-500/30 rounded-full px-3 py-0.5 mb-5">
                                     <span className="text-[10px] font-bold text-cyan-400 tracking-wider uppercase">Product Owner</span>
                                 </div>
 
                                 {/* Bio */}
-                                <div className="text-slate-400 text-xs leading-relaxed mb-6 max-w-sm mx-auto space-y-3">
+                                <div className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-6 max-w-sm mx-auto space-y-3">
                                     <p>
                                         I am an AI Intern and Full-Stack Developer at TechAccel India Pvt. Ltd., contributing to the development of intelligent, scalable web applications for recruitment and HR technology.
                                     </p>
@@ -209,9 +209,9 @@ function AboutSection() {
                                         href="https://github.com/Manasanoop28"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-white/50 flex items-center justify-center transition-all duration-300 group"
+                                        className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-white/50 flex items-center justify-center transition-all duration-300 group"
                                     >
-                                        <svg className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
+                                        <svg className="w-5 h-5 fill-slate-900 dark:fill-white group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                         </svg>
                                     </a>
@@ -219,7 +219,7 @@ function AboutSection() {
                                     {/* Email - Default */}
                                     <button
                                         onClick={() => window.location.href = 'mailto:contact@resumate.ai'}
-                                        className="w-10 h-10 rounded-full bg-slate-800/50 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-all duration-300 group"
+                                        className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-cyan-500/50 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 flex items-center justify-center transition-all duration-300 group"
                                         style={{ cursor: 'pointer' }}
                                     >
                                         <span className="material-icons text-xl group-hover:scale-110 transition-transform">email</span>
@@ -227,10 +227,10 @@ function AboutSection() {
                                 </div>
 
                                 {/* Divider & Footer */}
-                                <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-4"></div>
+                                <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-800 to-transparent mb-4"></div>
                                 <div className="flex items-center gap-2 opacity-60">
-                                    <span className="material-icons text-cyan-400 text-sm">school</span>
-                                    <span className="text-xs font-medium text-slate-300">TechAccel Alumni & Mentor</span>
+                                    <span className="material-icons text-cyan-500 dark:text-cyan-400 text-sm">school</span>
+                                    <span className="text-xs font-medium text-slate-600 dark:text-slate-300">TechAccel Alumni & Mentor</span>
                                 </div>
                             </div>
                         </div>

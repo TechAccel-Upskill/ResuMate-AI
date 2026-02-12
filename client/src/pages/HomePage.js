@@ -6,15 +6,12 @@ import PricingSection from "../components/PricingSection";
 import ResourcesSection from "../components/ResourcesSection";
 import Footer from "../components/Footer";
 import SuccessStoriesModal from "../components/SuccessStoriesModal";
+import ThemeToggle from "../components/ThemeToggle";
 import "./HomePage.css";
 
 function HomePage() {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-
-  const toggleDark = () => {
-    document.documentElement.classList.toggle("dark");
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,18 +60,12 @@ function HomePage() {
               <button onClick={() => document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth' })} className={getNavLinkClass('resources')}>Resources</button>
             </div>
             <div className="hidden md:flex items-center space-x-4">
-              <button aria-label="Toggle Dark Mode" className="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" onClick={toggleDark}>
-                <span className="material-icons dark:hidden">dark_mode</span>
-                <span className="material-icons hidden dark:block text-yellow-400">light_mode</span>
-              </button>
+              <ThemeToggle />
               <Link className="text-sm font-semibold text-slate-900 dark:text-white hover:text-primary transition-colors" to="/login">Sign In</Link>
               <Link className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40" to="/register">Get Started</Link>
             </div>
             <div className="md:hidden flex items-center gap-4">
-              <button className="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" onClick={toggleDark}>
-                <span className="material-icons dark:hidden">dark_mode</span>
-                <span className="material-icons hidden dark:block text-yellow-400">light_mode</span>
-              </button>
+              <ThemeToggle />
               <button className="text-slate-600 dark:text-slate-300 hover:text-primary">
                 <span className="material-icons text-3xl">menu</span>
               </button>
