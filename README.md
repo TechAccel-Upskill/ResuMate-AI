@@ -42,5 +42,11 @@ Have questions? Check our live FAQs:
    REACT_APP_SITE_URL=https://your-deployment-url.vercel.app
    ```
 5. Deploy
+### ✨ Automatic PR Previews
 
+Vercel automatically creates preview deployments for every Pull Request:
+- Each PR gets a unique preview URL
+- Automatically updates on new commits
+- Perfect for testing changes before merging
+- Preview URLs are shared in PR comments by Vercel bot
 **📖 For detailed deployment instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)**

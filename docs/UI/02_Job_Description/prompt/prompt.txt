@@ -1,3 +1,0 @@
-Prompt for Job Description UI
-
-Replace this placeholder with the actual prompt content.

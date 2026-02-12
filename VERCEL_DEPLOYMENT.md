@@ -28,6 +28,16 @@
    - Wait for the build to complete
    - Your app will be live!
 
+5. **Verify PR Deployment Settings** (Important!)
+   
+   Go to **Project Settings → Git** and ensure:
+   - ✅ **Production Branch:** `main` (or your default branch)
+   - ✅ **Deploy on Push:** Enabled
+   - ✅ **Ignore Build Step:** Not enabled (leave unchecked)
+   - ✅ **Preview Deployments:** All branches (default)
+   
+   This ensures every PR gets an automatic preview deployment.
+
 ## Demo Access
 
 The application uses demo authentication:
@@ -35,6 +45,33 @@ The application uses demo authentication:
 - **Password:** interns@techaccel
 
 All other authentication methods (OAuth, registration) are disabled for demo purposes.
+
+## PR Preview Deployments
+
+Vercel automatically creates preview deployments for Pull Requests:
+
+### How It Works
+1. Create a Pull Request on GitHub
+2. Vercel automatically builds and deploys a preview
+3. Preview URL is posted as a comment on the PR
+4. Each new commit updates the preview automatically
+
+### Preview URL Format
+```
+https://resu-mate-ai-<branch>-<user>.vercel.app
+```
+
+### Benefits
+- Test changes in production-like environment
+- Share preview links with team members
+- Review UI/UX changes before merging
+- Automatic cleanup when PR is closed
+
+### Configuration
+PR deployments are enabled in `vercel.json`:
+- `github.enabled: true` - Enables GitHub integration
+- `github.autoAlias: true` - Creates consistent preview URLs
+- `github.autoJobCancelation: true` - Cancels outdated builds
 
 ## Troubleshooting
 
