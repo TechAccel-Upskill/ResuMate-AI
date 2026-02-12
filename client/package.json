@@ -1,7 +1,6 @@
 {
   "name": "hr-resume-analyzer",
   "version": "0.1.0",
-  "homepage": "https://techaccel-upskill.github.io/ResuMate-AI",
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",

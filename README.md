@@ -20,14 +20,6 @@ ResuMate is an AI-powered recruitment assistant that speeds up candidate screeni
 Have questions? Check our live FAQs:
 🔗 https://github.com/TechAccel-Upskill/ResuMate-AI/discussions/categories/q-a 
 
-## Deployment (GitHub Pages)
-
-The client app is deployed from the `main` branch using GitHub Actions.
-
-1. Push to `main` to trigger the workflow.
-2. Ensure GitHub Pages is set to **GitHub Actions** in repo settings.
-3. The site will be available at: https://techaccel-upskill.github.io/ResuMate-AI
-
 ## Deployment (Vercel)
 
 To deploy the React app in `client`:
