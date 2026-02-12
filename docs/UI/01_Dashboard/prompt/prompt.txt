@@ -1,3 +1,0 @@
-Prompt for Dashboard UI
-
-Replace this placeholder with the actual prompt content.

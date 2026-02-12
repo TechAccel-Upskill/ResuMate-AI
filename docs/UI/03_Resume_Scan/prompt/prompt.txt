@@ -1,3 +1,0 @@
-Prompt for Resume Scan UI
-
-Replace this placeholder with the actual prompt content.
